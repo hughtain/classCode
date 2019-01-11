@@ -1,0 +1,1 @@
+Error[e27]: Entry "GenericApp_Init::?relay" in module Cankao ( C:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\GenericApp\CC2530DB\CoordinatorEB\Obj\Cankao.r51 ) redefined in module Zhonduana ( C:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\GenericApp\CC2530DB\CoordinatorEB\Obj\Zhonduana.r51 )

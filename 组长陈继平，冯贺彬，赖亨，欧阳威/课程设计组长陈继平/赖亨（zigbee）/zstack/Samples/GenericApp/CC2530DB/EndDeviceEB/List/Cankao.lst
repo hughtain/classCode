@@ -1,0 +1,1169 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V8.10.1.10194/W32 for 8051         22/Jun/2017  23:52:27 #
+# Copyright 2004-2011 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  C:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\Ge #
+#                          nericApp\Source\Cankao.c                           #
+#    Command line       =  -f C:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples #
+#                          \GenericApp\CC2530DB\..\..\..\Tools\CC2530DB\f8wEn #
+#                          dev.cfg (-DCPU32MHZ -DROOT=__near_func             #
+#                          -DMAC_CFG_TX_DATA_MAX=3 -DMAC_CFG_TX_MAX=6         #
+#                          -DMAC_CFG_RX_MAX=3) -f C:\ZStack-CC2530-2.5.1a\Pro #
+#                          jects\zstack\Samples\GenericApp\CC2530DB\..\..\..\ #
+#                          Tools\CC2530DB\f8wConfig.cfg (-DZIGBEEPRO          #
+#                          -DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR       #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DLINK_STATUS_JITTER_MASK=0x007F                   #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116                           #
+#                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const     #
+#                          __code" -DGENERIC=__generic                        #
+#                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000        #
+#                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)   #
+#                          -DREJOIN_POLL_RATE=440 C:\ZStack-CC2530-2.5.1a\Pro #
+#                          jects\zstack\Samples\GenericApp\Source\Cankao.c    #
+#                          -D NWK_AUTO_POLL -D ZTOOL_P1 -D MT_TASK -D         #
+#                          MT_SYS_FUNC -D MT_ZDO_FUNC -D LCD_SUPPORTED=DEBUG  #
+#                          -D xPOWER_SAVING -D HAL_UART=TRUE -lC              #
+#                          C:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\Ge #
+#                          nericApp\CC2530DB\EndDeviceEB\List\ -lA            #
+#                          C:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\Ge #
+#                          nericApp\CC2530DB\EndDeviceEB\List\                #
+#                          --diag_suppress Pe001,Pa010 -o                     #
+#                          C:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\Ge #
+#                          nericApp\CC2530DB\EndDeviceEB\Obj\ -e              #
+#                          --no_code_motion --debug --core=plain --dptr=16,1  #
+#                          --data_model=large --code_model=banked             #
+#                          --calling_convention=xdata_reentrant               #
+#                          --place_constants=data_rom --nr_virtual_regs 16    #
+#                          -I C:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples #
+#                          \GenericApp\CC2530DB\ -I                           #
+#                          C:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\Ge #
+#                          nericApp\CC2530DB\..\Source\ -I                    #
+#                          C:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\Ge #
+#                          nericApp\CC2530DB\..\..\..\ZMain\TI2530DB\ -I      #
+#                          C:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\Ge #
+#                          nericApp\CC2530DB\..\..\..\..\..\Components\hal\in #
+#                          clude\ -I C:\ZStack-CC2530-2.5.1a\Projects\zstack\ #
+#                          Samples\GenericApp\CC2530DB\..\..\..\..\..\Compone #
+#                          nts\hal\target\CC2530EB\ -I                        #
+#                          C:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\Ge #
+#                          nericApp\CC2530DB\..\..\..\..\..\Components\mac\in #
+#                          clude\ -I C:\ZStack-CC2530-2.5.1a\Projects\zstack\ #
+#                          Samples\GenericApp\CC2530DB\..\..\..\..\..\Compone #
+#                          nts\mac\high_level\ -I C:\ZStack-CC2530-2.5.1a\Pro #
+#                          jects\zstack\Samples\GenericApp\CC2530DB\..\..\..\ #
+#                          ..\..\Components\mac\low_level\srf04\ -I           #
+#                          C:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\Ge #
+#                          nericApp\CC2530DB\..\..\..\..\..\Components\mac\lo #
+#                          w_level\srf04\single_chip\ -I                      #
+#                          C:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\Ge #
+#                          nericApp\CC2530DB\..\..\..\..\..\Components\mt\    #
+#                          -I C:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples #
+#                          \GenericApp\CC2530DB\..\..\..\..\..\Components\osa #
+#                          l\include\ -I C:\ZStack-CC2530-2.5.1a\Projects\zst #
+#                          ack\Samples\GenericApp\CC2530DB\..\..\..\..\..\Com #
+#                          ponents\services\saddr\ -I                         #
+#                          C:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\Ge #
+#                          nericApp\CC2530DB\..\..\..\..\..\Components\servic #
+#                          es\sdata\ -I C:\ZStack-CC2530-2.5.1a\Projects\zsta #
+#                          ck\Samples\GenericApp\CC2530DB\..\..\..\..\..\Comp #
+#                          onents\stack\af\ -I C:\ZStack-CC2530-2.5.1a\Projec #
+#                          ts\zstack\Samples\GenericApp\CC2530DB\..\..\..\..\ #
+#                          ..\Components\stack\nwk\ -I                        #
+#                          C:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\Ge #
+#                          nericApp\CC2530DB\..\..\..\..\..\Components\stack\ #
+#                          sapi\ -I C:\ZStack-CC2530-2.5.1a\Projects\zstack\S #
+#                          amples\GenericApp\CC2530DB\..\..\..\..\..\Componen #
+#                          ts\stack\sec\ -I C:\ZStack-CC2530-2.5.1a\Projects\ #
+#                          zstack\Samples\GenericApp\CC2530DB\..\..\..\..\..\ #
+#                          Components\stack\sys\ -I                           #
+#                          C:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\Ge #
+#                          nericApp\CC2530DB\..\..\..\..\..\Components\stack\ #
+#                          zdo\ -I C:\ZStack-CC2530-2.5.1a\Projects\zstack\Sa #
+#                          mples\GenericApp\CC2530DB\..\..\..\..\..\Component #
+#                          s\zmac\ -I C:\ZStack-CC2530-2.5.1a\Projects\zstack #
+#                          \Samples\GenericApp\CC2530DB\..\..\..\..\..\Compon #
+#                          ents\zmac\f8w\ -Ohz --require_prototypes           #
+#    List file          =  C:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\Ge #
+#                          nericApp\CC2530DB\EndDeviceEB\List\Cankao.lst      #
+#    Object file        =  C:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\Ge #
+#                          nericApp\CC2530DB\EndDeviceEB\Obj\Cankao.r51       #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\GenericApp\Source\Cankao.c
+      1          #include "OSAL.h"
+      2          #include "AF.h"
+      3          #include "ZDApp.h"
+      4          #include "ZDObject.h"
+      5          #include "ZDProfile.h"
+      6          #include<string.h>
+      7          #include "GenericApp.h"
+      8          #include "DebugTrace.h"
+      9          
+     10          #if !defined( WIN32 )
+     11            #include "OnBoard.h"
+     12          #endif
+     13          
+     14          /* HAL */
+     15          #include "hal_lcd.h"
+     16          #include "hal_led.h"
+     17          #include "hal_key.h"
+     18          #include "hal_uart.h"
+     19          
+     20          //////////////////////////
+     21          ///
+     22          #define ERR  50 //误差值
+     23          #include <math.h>
+     24          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+     25          const cId_t GenericApp_ClusterListOutput[GENERICAPP_MAX_CLUSTERS] =
+   \                     GenericApp_ClusterListOutput:
+   \   000000   0B00         DW 11
+     26          {
+     27            
+     28              
+     29                LOCATION_RSSI_BLAST
+     30          };
+     31          
+     32          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+     33          const cId_t GenericApp_ClusterListInput[GENERICAPP_MAX_CLUSTERS] =
+   \                     GenericApp_ClusterListInput:
+   \   000000   6F00         DW 111
+     34          {
+     35            
+     36           
+     37           LOCATION_XY_RSSI_RESPONSE
+     38          };
+     39          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+     40          const SimpleDescriptionFormat_t GenericApp_SimpleDesc =
+   \                     GenericApp_SimpleDesc:
+   \   000000   0A           DB 10
+   \   000001   040F         DW 3844
+   \   000003   0100         DW 1
+   \   000005   00           DB 0
+   \   000006   01           DB 1
+   \   000007   ....         DW GenericApp_ClusterListInput
+   \   000009   01           DB 1
+   \   00000A   ....         DW GenericApp_ClusterListOutput
+     41          {
+     42            GENERICAPP_ENDPOINT,              //  int Endpoint;
+     43            GENERICAPP_PROFID,                //  uint16 AppProfId[2];
+     44            GENERICAPP_DEVICEID,              //  uint16 AppDeviceId[2];
+     45            GENERICAPP_DEVICE_VERSION,        //  int   AppDevVer:4;
+     46            GENERICAPP_FLAGS,                 //  int   AppFlags:4;
+     47            GENERICAPP_MAX_CLUSTERS,          //  byte  AppNumInClusters;
+     48            (cId_t *)GenericApp_ClusterListInput,  //  byte *pAppInClusterList;
+     49            GENERICAPP_MAX_CLUSTERS,          //  byte  AppNumInClusters;
+     50            (cId_t *)GenericApp_ClusterListOutput   //  byte *pAppInClusterList;
+     51          };
+     52          
+     53          
+     54          
+     55          
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     56          endPointDesc_t GenericApp_epDesc;
+   \                     GenericApp_epDesc:
+   \   000000                DS 6
+   \   000006                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     57          byte GenericApp_TaskID;   
+   \                     GenericApp_TaskID:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     58          byte GenericApp_TransID;// This is the unique message ID (counter)
+   \                     GenericApp_TransID:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     59          devStates_t GenericApp_NwkState; //存储网络状态
+   \                     GenericApp_NwkState:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+     60          
+     61          //unsigned char uartbuf[128];
+     62          
+     63          /*typedef struct{
+     64            byte endPoint;
+     65            byte *task_id;
+     66            SimpleDescriptionFormat_t *simpleDesc;
+     67            afNetworkLatencyReq_t latencyReq;
+     68          } endPointDesc_t;*/
+     69          
+     70          
+     71          
+     72          //void processMSGCmd(afIncomingMSGpacket_t *pckt);
+     73          void GenericApp_MessageMSGCB(afIncomingMSGPacket_t *pckt);
+     74          void GenericApp_SendTheMessage(void);
+     75          /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     76          //
+     77          ///
+     78          void rssitoDistance(double rssi,int a,double n);
+     79          //void locate(POINT_SITE * data,double* ans);                                                   // 用于计算位置
+     80          void two_circle(double x1,double y1,double r1,double x2,double y2,double r2,double* ans_two_cir);     // 求两个圆的交点
+     81          void quadratic_equation(double a,double b,double c,double* ans_qua_equ);
+     82                                        // 求二次方程的解
+     83          ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////函数声明
+     84          
+     85          
+     86          //static void rxCB(uint8 port,uint8 event);
+     87          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     88          void GenericApp_Init( uint8 task_id )
+   \                     GenericApp_Init:
+     89          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 29
+   \   000005   74E3         MOV     A,#-0x1d
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   E9           MOV     A,R1
+     90            halUARTCfg_t uartConfig; // 定义串口
+     91            GenericApp_TaskID = task_id;
+   \   00000B   90....       MOV     DPTR,#GenericApp_TaskID
+   \   00000E   F0           MOVX    @DPTR,A
+     92            GenericApp_TransID = 0;
+   \   00000F   90....       MOV     DPTR,#GenericApp_TransID
+   \   000012   E4           CLR     A
+   \   000013   F0           MOVX    @DPTR,A
+     93          
+     94            GenericApp_epDesc.endPoint = GENERICAPP_ENDPOINT;
+   \   000014   90....       MOV     DPTR,#GenericApp_epDesc
+   \   000017   740A         MOV     A,#0xa
+   \   000019   F0           MOVX    @DPTR,A
+     95            GenericApp_epDesc.task_id = &GenericApp_TaskID;
+   \   00001A   A3           INC     DPTR
+   \   00001B   74..         MOV     A,#GenericApp_TaskID & 0xff
+   \   00001D   F0           MOVX    @DPTR,A
+   \   00001E   A3           INC     DPTR
+   \   00001F   74..         MOV     A,#(GenericApp_TaskID >> 8) & 0xff
+   \   000021   F0           MOVX    @DPTR,A
+     96            GenericApp_epDesc.simpleDesc = (SimpleDescriptionFormat_t *)&GenericApp_SimpleDesc;
+   \   000022   A3           INC     DPTR
+   \   000023   74..         MOV     A,#GenericApp_SimpleDesc & 0xff
+   \   000025   F0           MOVX    @DPTR,A
+   \   000026   A3           INC     DPTR
+   \   000027   74..         MOV     A,#(GenericApp_SimpleDesc >> 8) & 0xff
+   \   000029   F0           MOVX    @DPTR,A
+     97            GenericApp_epDesc.latencyReq = noLatencyReqs;
+   \   00002A   A3           INC     DPTR
+   \   00002B   E4           CLR     A
+   \   00002C   F0           MOVX    @DPTR,A
+     98            afRegister( &GenericApp_epDesc );
+   \   00002D                ; Setup parameters for call to function afRegister
+   \   00002D   7A..         MOV     R2,#GenericApp_epDesc & 0xff
+   \   00002F   7B..         MOV     R3,#(GenericApp_epDesc >> 8) & 0xff
+   \   000031   12....       LCALL   ??afRegister?relay
+     99            
+    100            //对串口成员赋值
+    101            uartConfig.configured=TRUE;
+   \   000034   85..82       MOV     DPL,?XSP + 0
+   \   000037   85..83       MOV     DPH,?XSP + 1
+   \   00003A   7401         MOV     A,#0x1
+   \   00003C   F0           MOVX    @DPTR,A
+    102            uartConfig.baudRate=HAL_UART_BR_115200;
+   \   00003D   12....       LCALL   ?XSTACK_DISP0_8
+   \   000040   7404         MOV     A,#0x4
+   \   000042   F0           MOVX    @DPTR,A
+    103            uartConfig.flowControl=FALSE;
+   \   000043   7402         MOV     A,#0x2
+   \   000045   12....       LCALL   ?XSTACK_DISP0_8
+   \   000048   E4           CLR     A
+   \   000049   F0           MOVX    @DPTR,A
+    104            uartConfig.callBackFunc=NULL;
+   \   00004A   741B         MOV     A,#0x1b
+   \   00004C   12....       LCALL   ?XSTACK_DISP0_8
+   \   00004F   E4           CLR     A
+   \   000050   F0           MOVX    @DPTR,A
+   \   000051   A3           INC     DPTR
+   \   000052   F0           MOVX    @DPTR,A
+    105            HalUARTOpen(0,&uartConfig);
+   \   000053                ; Setup parameters for call to function HalUARTOpen
+   \   000053   85..82       MOV     DPL,?XSP + 0
+   \   000056   85..83       MOV     DPH,?XSP + 1
+   \   000059   AA82         MOV     R2,DPL
+   \   00005B   AB83         MOV     R3,DPH
+   \   00005D   F9           MOV     R1,A
+   \   00005E   12....       LCALL   ??HalUARTOpen?relay
+    106          }
+   \   000061   741D         MOV     A,#0x1d
+   \   000063   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000066   7F01         MOV     R7,#0x1
+   \   000068   02....       LJMP    ?BANKED_LEAVE_XDATA
+    107          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    108          uint16 GenericApp_ProcessEvent( byte task_id, uint16 events )
+   \                     GenericApp_ProcessEvent:
+    109          {
+   \   000000   74F4         MOV     A,#-0xc
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 0
+   \   000005   8A..         MOV     ?V0 + 0,R2
+   \   000007   8B..         MOV     ?V0 + 1,R3
+    110            afIncomingMSGPacket_t *MSGpkt;
+    111          
+    112            if ( events & SYS_EVENT_MSG )
+   \   000009   EB           MOV     A,R3
+   \   00000A   5480         ANL     A,#0x80
+   \   00000C   604B         JZ      ??GenericApp_ProcessEvent_0
+    113            {
+    114              MSGpkt = (afIncomingMSGPacket_t *)osal_msg_receive( GenericApp_TaskID );
+   \   00000E                ; Setup parameters for call to function osal_msg_receive
+   \   00000E   8014         SJMP    ??GenericApp_ProcessEvent_1
+    115              while ( MSGpkt )
+    116              {
+    117                switch ( MSGpkt->hdr.event )
+    118                {
+    119                  case AF_INCOMING_MSG_CMD:
+    120                    GenericApp_MessageMSGCB( MSGpkt );
+    121                    break;
+    122                    
+    123                  case ZDO_STATE_CHANGE: //建立网络后 给终端发数据
+    124                    GenericApp_NwkState = (devStates_t)(MSGpkt->hdr.status);
+   \                     ??GenericApp_ProcessEvent_2:
+   \   000010   A3           INC     DPTR
+   \   000011   E0           MOVX    A,@DPTR
+   \   000012   90....       MOV     DPTR,#GenericApp_NwkState
+   \   000015   F0           MOVX    @DPTR,A
+    125                    if (GenericApp_NwkState == DEV_END_DEVICE)
+   \   000016   6406         XRL     A,#0x6
+   \   000018   7003         JNZ     ??GenericApp_ProcessEvent_3
+    126                    {
+    127                      GenericApp_SendTheMessage();
+   \   00001A                ; Setup parameters for call to function GenericApp_SendTheMessage
+   \   00001A   12....       LCALL   ??GenericApp_SendTheMessage?relay
+    128                    }
+    129                    break;
+    130                    
+    131                  default:
+    132                    break;
+    133                }
+    134                osal_msg_deallocate( (uint8 *)MSGpkt );
+   \                     ??GenericApp_ProcessEvent_3:
+   \   00001D                ; Setup parameters for call to function osal_msg_deallocate
+   \   00001D   EE           MOV     A,R6
+   \   00001E   FA           MOV     R2,A
+   \   00001F   EF           MOV     A,R7
+   \   000020   FB           MOV     R3,A
+   \   000021   12....       LCALL   ??osal_msg_deallocate?relay
+    135             
+    136                MSGpkt = (afIncomingMSGPacket_t *)osal_msg_receive( GenericApp_TaskID );
+   \   000024                ; Setup parameters for call to function osal_msg_receive
+   \                     ??GenericApp_ProcessEvent_1:
+   \   000024   90....       MOV     DPTR,#GenericApp_TaskID
+   \   000027   E0           MOVX    A,@DPTR
+   \   000028   F9           MOV     R1,A
+   \   000029   12....       LCALL   ??osal_msg_receive?relay
+   \   00002C   8A..         MOV     ?V0 + 2,R2
+   \   00002E   8B..         MOV     ?V0 + 3,R3
+   \   000030   AE..         MOV     R6,?V0 + 2
+   \   000032   AF..         MOV     R7,?V0 + 3
+   \   000034   EE           MOV     A,R6
+   \   000035   4F           ORL     A,R7
+   \   000036   6018         JZ      ??GenericApp_ProcessEvent_4
+   \   000038   8E82         MOV     DPL,R6
+   \   00003A   8F83         MOV     DPH,R7
+   \   00003C   E0           MOVX    A,@DPTR
+   \   00003D   24E6         ADD     A,#-0x1a
+   \   00003F   6006         JZ      ??GenericApp_ProcessEvent_5
+   \   000041   2449         ADD     A,#0x49
+   \   000043   60CB         JZ      ??GenericApp_ProcessEvent_2
+   \   000045   80D6         SJMP    ??GenericApp_ProcessEvent_3
+   \                     ??GenericApp_ProcessEvent_5:
+   \   000047                ; Setup parameters for call to function GenericApp_MessageMSGCB
+   \   000047   EE           MOV     A,R6
+   \   000048   FA           MOV     R2,A
+   \   000049   EF           MOV     A,R7
+   \   00004A   FB           MOV     R3,A
+   \   00004B   12....       LCALL   ??GenericApp_MessageMSGCB?relay
+   \   00004E   80CD         SJMP    ??GenericApp_ProcessEvent_3
+    137              }
+    138          
+    139              // return unprocessed events
+    140              return (events ^ SYS_EVENT_MSG);
+   \                     ??GenericApp_ProcessEvent_4:
+   \   000050   AA..         MOV     R2,?V0 + 0
+   \   000052   E5..         MOV     A,?V0 + 1
+   \   000054   6480         XRL     A,#0x80
+   \   000056   FB           MOV     R3,A
+   \   000057   8004         SJMP    ??GenericApp_ProcessEvent_6
+    141            }
+    142            return 0;
+   \                     ??GenericApp_ProcessEvent_0:
+   \   000059   7A00         MOV     R2,#0x0
+   \   00005B   7B00         MOV     R3,#0x0
+   \                     ??GenericApp_ProcessEvent_6:
+   \   00005D   7F04         MOV     R7,#0x4
+   \   00005F   02....       LJMP    ?BANKED_LEAVE_XDATA
+    143          }
+    144          
+    145          
+    146          /*void processMSGCmd(afIncomingMSGPacket_t *pckt)
+    147          {
+    148          		switch(pkt->clusterId)
+    149          		{
+    150          		
+    151          		   case LOCATION_XY_RSSI_RESPONSE:
+    152          		   uint8 idx;
+    153          		   double distance;
+    154          		   for(idx=0;idx<3;idx++)
+    155          		   {
+    156          				data[idx].x=BUILD_UINT16(pkt->cmd.Data[LOCATION_XY_RSSI_X_LO_IDX],pkt->cmd.Data[LOCATION_XY_RSSI_X_HI_IDX]);
+    157          				data[idx].y=BUILD_UINT16(pkt->cmd.Data[LOCATION_XY_RSSI_Y_LO_IDX],pkt->cmd.Data[LOCATION_XY_RSSI_Y_HI_IDX]);
+    158          				data[idx].rssi=pkt->cmd.Data[LOCATION_XY_RSSI_X_RSSI_IDX]);
+    159          				distance=rssitoDistance(s[i],-54.8,3.6);
+    160          				data[idx].d=distance;
+    161          				
+    162          				break;
+    163          		   }
+    164          		   break;
+    165          		}
+    166          
+    167          }
+    168          */
+    169          
+    170          /*void rssitoDistance(double rssi,int a,double n)
+    171          	{
+    172          			double ra=rssi;//赋值，此时的rssi为绝对值
+    173          			double ka=(ra-a)/(10*n);
+    174          			double  distance=Math.pow(10,ka);//求出10的ka次方
+    175          			return distance;//返回盲节点和参考节点之间的距离
+    176          
+    177          	
+    178          	}
+    179          
+    180          */
+    181          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    182          void GenericApp_SendTheMessage( void )
+   \                     GenericApp_SendTheMessage:
+    183          {
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 12
+   \   000005   74F4         MOV     A,#-0xc
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+    184            unsigned char theMessageData[10] = "EndDevice";
+                                 ^
+Warning[Pe177]: variable "theMessageData" was declared but never referenced
+    185            afAddrType_t my_DstAddr;
+    186            my_DstAddr.addrMode = (afAddrMode_t)AddrBroadcast;//广播模式
+   \   00000A   7408         MOV     A,#0x8
+   \   00000C   12....       LCALL   ?XSTACK_DISP0_8
+   \   00000F   740F         MOV     A,#0xf
+   \   000011   F0           MOVX    @DPTR,A
+    187            my_DstAddr.endPoint = GENERICAPP_ENDPOINT;
+   \   000012   7409         MOV     A,#0x9
+   \   000014   12....       LCALL   ?XSTACK_DISP0_8
+   \   000017   740A         MOV     A,#0xa
+   \   000019   F0           MOVX    @DPTR,A
+    188            my_DstAddr.addr.shortAddr = 0xFFFF;//全部节点 包括休眠的
+   \   00001A   85..82       MOV     DPL,?XSP + 0
+   \   00001D   85..83       MOV     DPH,?XSP + 1
+   \   000020   74FF         MOV     A,#-0x1
+   \   000022   F0           MOVX    @DPTR,A
+   \   000023   A3           INC     DPTR
+   \   000024   F0           MOVX    @DPTR,A
+    189                                               //0xFFFD     全部节点 不包括休眠的
+    190                                               //0xFFFC    发往所有路由节点
+    191          
+    192            AF_DataRequest( &my_DstAddr, &GenericApp_epDesc,
+    193                                 LOCATION_RSSI_BLAST,
+    194                                 0,
+    195                                 NULL,
+    196                                 &GenericApp_TransID,
+    197                                 AF_SKIP_ROUTING, 
+    198                                 1 );
+   \   000025                ; Setup parameters for call to function AF_DataRequest
+   \   000025   75..01       MOV     ?V0 + 0,#0x1
+   \   000028   78..         MOV     R0,#?V0 + 0
+   \   00002A   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   00002D   75....       MOV     ?V0 + 0,#GenericApp_TransID & 0xff
+   \   000030   75....       MOV     ?V0 + 1,#(GenericApp_TransID >> 8) & 0xff
+   \   000033   78..         MOV     R0,#?V0 + 0
+   \   000035   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000038   E4           CLR     A
+   \   000039   F5..         MOV     ?V0 + 0,A
+   \   00003B   F5..         MOV     ?V0 + 1,A
+   \   00003D   78..         MOV     R0,#?V0 + 0
+   \   00003F   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000042   78..         MOV     R0,#?V0 + 0
+   \   000044   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000047   75..0B       MOV     ?V0 + 0,#0xb
+   \   00004A   78..         MOV     R0,#?V0 + 0
+   \   00004C   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00004F   7980         MOV     R1,#-0x80
+   \   000051   7C..         MOV     R4,#GenericApp_epDesc & 0xff
+   \   000053   7D..         MOV     R5,#(GenericApp_epDesc >> 8) & 0xff
+   \   000055   7409         MOV     A,#0x9
+   \   000057   12....       LCALL   ?XSTACK_DISP0_8
+   \   00005A   AA82         MOV     R2,DPL
+   \   00005C   AB83         MOV     R3,DPH
+   \   00005E   12....       LCALL   ??AF_DataRequest?relay
+   \   000061   7409         MOV     A,#0x9
+   \   000063   12....       LCALL   ?DEALLOC_XSTACK8
+    199            //state=eBnBlastout;
+    200            
+    201          }
+   \   000066   740C         MOV     A,#0xc
+   \   000068   12....       LCALL   ?DEALLOC_XSTACK8
+   \   00006B   7F02         MOV     R7,#0x2
+   \   00006D   02....       LJMP    ?BANKED_LEAVE_XDATA
+    202          
+    203          
+    204          
+    205          
+    206          
+    207          
+    208          
+    209          
+    210          
+    211          
+    212          
+    213          //////////////////////////////////////////////////////////////////////
+    214          //
+    215          ////定义x和y坐标，r半径，cnt判断终端传来的个数
+    216          
+    217          //POINT_SITE data[3];//存放节点坐标和节点与盲点的距离
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    218          int cnt=0;//存放总终端数
+   \                     cnt:
+   \   000000                DS 2
+   \   000002                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    219          double ans[3];//存放算出小车的坐标
+   \                     ans:
+   \   000000                DS 12
+   \   00000C                REQUIRE __INIT_XDATA_Z
+    220          ///////////////////////////////////////////////////////////////////定义全局变量
+    221          
+    222          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    223          void GenericApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
+   \                     GenericApp_MessageMSGCB:
+    224          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    225           //  buffer[3];
+    226            //unsigned char buff[2]={0x0A,0x0D};      //回车换行ASCII码
+    227            // unsigned char buffer[10];
+    228             int8 i;
+    229            switch ( pkt->clusterId )
+   \   000004   8A82         MOV     DPL,R2
+   \   000006   8B83         MOV     DPH,R3
+   \   000008   A3           INC     DPTR
+   \   000009   A3           INC     DPTR
+   \   00000A   A3           INC     DPTR
+   \   00000B   A3           INC     DPTR
+   \   00000C   E0           MOVX    A,@DPTR
+   \   00000D   646F         XRL     A,#0x6f
+   \   00000F   7002         JNZ     ??GenericApp_MessageMSGCB_0
+   \   000011   A3           INC     DPTR
+   \   000012   E0           MOVX    A,@DPTR
+   \                     ??GenericApp_MessageMSGCB_0:
+   \   000013   7019         JNZ     ??GenericApp_MessageMSGCB_1
+    230            {
+    231            case  LOCATION_XY_RSSI_RESPONSE:
+    232                 i=pkt->rssi;
+    233                 
+    234                  HalUARTWrite(0,(char *)i,1);
+                                        ^
+Warning[Pe167]: argument of type "char *" is incompatible with parameter of
+          type "unsigned char *"
+   \   000015                ; Setup parameters for call to function HalUARTWrite
+   \   000015   7C01         MOV     R4,#0x1
+   \   000017   7D00         MOV     R5,#0x0
+   \   000019   EA           MOV     A,R2
+   \   00001A   2418         ADD     A,#0x18
+   \   00001C   F582         MOV     DPL,A
+   \   00001E   EB           MOV     A,R3
+   \   00001F   3400         ADDC    A,#0x0
+   \   000021   F583         MOV     DPH,A
+   \   000023   E0           MOVX    A,@DPTR
+   \   000024   FA           MOV     R2,A
+   \   000025   33           RLC     A
+   \   000026   95E0         SUBB    A,0xE0 /* A   */
+   \   000028   FB           MOV     R3,A
+   \   000029   7900         MOV     R1,#0x0
+   \   00002B   12....       LCALL   ??HalUARTWrite?relay
+    235               break;
+    236            }
+    237          }
+   \                     ??GenericApp_MessageMSGCB_1:
+   \   00002E   D083         POP     DPH
+   \   000030   D082         POP     DPL
+   \   000032   02....       LJMP    ?BRET
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GenericApp_Init?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GenericApp_Init
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GenericApp_ProcessEvent?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GenericApp_ProcessEvent
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GenericApp_SendTheMessage?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GenericApp_SendTheMessage
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GenericApp_MessageMSGCB?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GenericApp_MessageMSGCB
+    238          
+    239          
+    240          
+    241          
+    242          ///////////////////////////////////////////////////////////////////////////////////////////
+    243          //
+    244          //计算三个圆的坐标 即小车的坐标
+    245          
+    246          /*void locate(POINT_SITE * data,double* ans) 
+    247          {
+    248            double ans_two_cir1[5];
+    249            double ans_two_cir2[5];
+    250            two_circle(data[0].x,data[0].y,data[0].r,data[1].x,data[1].y,data[1].r,ans_two_cir1);///////////////////////////////////////调用第一组圆求交点函数
+    251          
+    252            if(ans_two_cir1[0]==0)//////////////////////////////////////////////第一组圆没有交点
+    253          	{
+    254          		ans_loc[0]=0;
+    255          		return;
+    256          	}
+    257          
+    258            if(ans_two_cir1[0]==1)////////////////////////////////////////////// 第一组圆有一个交点
+    259          	{
+    260          		
+    261          		two_circle(data[1].x,data[1].y,data[1].r,data[2].x,data[2].y,data[2].r,ans_two_cir2);/////////调用第二组圆求交点函数
+    262          
+    263          		if(ans_two_cir2[0]==0)////////////////////第二组圆没有交点
+    264          		{
+    265          			ans_loc[0]=0;
+    266          			return;
+    267          		}
+    268          		if(ans_two_cir2[0]==1)///////////////////第二组圆有一个交点
+    269          		{
+    270          			if( fabs(ans_two_cir1[1]-ans_two_cir2[1])<ERR && fabs(ans_two_cir1[2]-ans_two_cir2[2])<ERR )
+    271          			{
+    272          				ans_loc[0]=1;
+    273          				ans_loc[1]=ans_two_cir1[1];
+    274          				ans_loc[2]=ans_two_cir1[2];
+    275          				return;
+    276          			}
+    277          			else
+    278          			{
+    279          				ans_loc[0]=0;
+    280          				return;
+    281          			}
+    282          		}
+    283          		if(ans_two_cir2[0]==2)///////////////////第二组员有两个交点
+    284          		{
+    285          			if(fabs(ans_two_cir1[1]-ans_two_cir2[1])<ERR && fabs(ans_two_cir1[2]-ans_two_cir2[2])<ERR)
+    286          			{
+    287          				ans_loc[0]=1;
+    288          				ans_loc[1]=ans_two_cir1[1];
+    289          				ans_loc[2]=ans_two_cir1[2];
+    290          				return;
+    291          			}
+    292          			if( fabs(ans_two_cir1[1]-ans_two_cir2[3])<ERR && fabs(ans_two_cir1[2]-ans_two_cir2[4])<ERR )
+    293          			{
+    294          				ans_loc[0]=1;
+    295          				ans_loc[1]=ans_two_cir1[1];
+    296          				ans_loc[2]=ans_two_cir1[2];
+    297          				return;
+    298          			}
+    299          			else
+    300          			{
+    301          				ans_loc[0]=0;
+    302          				return;
+    303          			}
+    304          		}
+    305          		else//////////////////////////////////////////第二组圆出错
+    306          		{
+    307          			ans_loc[0]=0;
+    308          			return;
+    309          		}
+    310          	}
+    311          
+    312          
+    313            	if(ans_two_cir1[0]==2)////////////////////////////////////////////// 第一组圆有两个交点
+    314          	{
+    315          		two_circle(data[1].x,data[1].y,data[1].r,data[2].x,data[2].y,data[2].r,ans_two_cir2);////////调用第二组圆求交点函数
+    316          		if(ans_two_cir2[0]==0)////////////////////第二组圆没有交点
+    317          		{
+    318          			ans_loc[0]=0;
+    319          			return;
+    320          		}
+    321          		if(ans_two_cir2[0]==1)///////////////////第二组员有一个交点
+    322          		{
+    323          			if( fabs(ans_two_cir1[1]-ans_two_cir2[1])<ERR && fabs(ans_two_cir1[2]-ans_two_cir2[2])<ERR )
+    324          			{
+    325          				ans_loc[0]=1;
+    326          				ans_loc[1]=ans_two_cir1[1];
+    327          				ans_loc[2]=ans_two_cir1[2];
+    328          				return;
+    329          			}
+    330          			if( fabs(ans_two_cir1[3]-ans_two_cir2[1])<ERR && fabs(ans_two_cir1[4]-ans_two_cir2[2])<ERR )
+    331          			{
+    332          				ans_loc[0]=1;
+    333          				ans_loc[1]=ans_two_cir1[3];
+    334          				ans_loc[2]=ans_two_cir1[4];
+    335          				return;
+    336          			}
+    337          			else
+    338          			{
+    339          				ans_loc[0]=0;
+    340          				return;
+    341          			}
+    342          		}
+    343          		if(ans_two_cir2[0]==2)///////////////////第二组员有两个交点
+    344          		{
+    345          			if( fabs(ans_two_cir1[1]-ans_two_cir2[1])<ERR && fabs(ans_two_cir1[2]-ans_two_cir2[2])<ERR )
+    346          			{
+    347          				ans_loc[0]=1;
+    348          				ans_loc[1]=ans_two_cir1[1];
+    349          				ans_loc[2]=ans_two_cir1[2];
+    350          				return;
+    351          			}
+    352          			if( fabs(ans_two_cir1[3]-ans_two_cir2[1])<ERR && fabs(ans_two_cir1[4]-ans_two_cir2[2])<ERR )
+    353          			{
+    354          				ans_loc[0]=1;
+    355          				ans_loc[1]=ans_two_cir1[3];
+    356          				ans_loc[2]=ans_two_cir1[4];
+    357          				return;
+    358          			}
+    359          			if( fabs(ans_two_cir1[1]-ans_two_cir2[3])<ERR && fabs(ans_two_cir1[2]-ans_two_cir2[4])<ERR )
+    360          			{
+    361          				ans_loc[0]=1;
+    362          				ans_loc[1]=ans_two_cir1[1];
+    363          				ans_loc[2]=ans_two_cir1[2];
+    364          				return;
+    365          			}
+    366          			if( fabs(ans_two_cir1[3]-ans_two_cir2[3])<ERR && fabs(ans_two_cir1[4]-ans_two_cir2[4])<ERR )
+    367          			{
+    368          				ans_loc[0]=1;
+    369          				ans_loc[1]=ans_two_cir1[3];
+    370          				ans_loc[2]=ans_two_cir1[4];
+    371          				return;
+    372          			}
+    373          			else
+    374          			{
+    375          				ans_loc[0]=0;
+    376          				return;
+    377          			}
+    378          		}
+    379          		else//////////////////////////////////////////第二组圆出错
+    380          		{
+    381          			ans_loc[0]=0;
+    382          			return;
+    383          		}
+    384          	}
+    385          
+    386          	else//////////////////////////////////////////////////////////////////// 第一组圆出错
+    387          	{
+    388          		printf("1error\n");
+    389          		return;
+    390          	}
+    391          
+    392          
+    393          }
+    394          ////////////////////////////////////////////////////////////////////////////////// locate
+    395          
+    396          
+    397          
+    398          ///////////////////////////////////////////////////////////////////////////////////
+    399          //
+    400          //计算两个圆的焦点
+    401          void two_circle(double x1,double y1,double r1,double x2,double y2,double r2,double* ans_two_cir)
+    402          {
+    403            
+    404            	double ans_qua_equ[3];                     // 暂时存放二次方程的解 第一个存解的个数
+    405          	double d;                                  // 两个圆的距离
+    406          	double k;                                  // 两圆心直线的斜率
+    407          	double k1;                                 // 与k垂直
+    408          	double a,b,c;                              // 暂时存放二次方程的参数
+    409          	double x11,x22,x33,x44,y11,y22,y33,y44;    // 暂时存放中间的可能交点
+    410          	double xa,ya;                              // 有两个交点，两圆心的直线和两圆焦点直线的交点（xa，ya）
+    411          	double d1,d2;                              // 存放交点（xa，ya）到两圆心的距离
+    412          	double temp;                               // 临时变量用于运算方便
+    413          
+    414           	
+    415          
+    416          	if( d>r1+r2 || d<fabs(r1-r2) )///////////////////////////////////////////////////////////////圆无交点
+    417          	{
+    418          		ans_two_cir[0]=0;
+    419          		return;
+    420          	}
+    421          
+    422          	if( d==r1+r2 || d==fabs(r1-r2) )////////////////////////////////////////////////////////////圆有一个交点
+    423          	{
+    424          		k=(y1-y2)/(x1-x2);  //
+    425          		a=k*k+1;
+    426          		b=-2*(k*k+1)*x1;
+    427          		c=(k*k+1)*x1*x1-r1*r1;
+    428          		quadratic_equation(a,b,c,ans_qua_equ);
+    429          
+    430          		if(ans_qua_equ[0]==2)
+    431          		{
+    432          			x11=ans_qua_equ[1];
+    433          			x22=ans_qua_equ[2];
+    434          			y11=k*x11-k*x1+y1;
+    435          			y22=k*x22-k*x1+y1;
+    436          
+    437          			a=k*k+1;
+    438          			b=-2*(k*k+1)*x2;
+    439          			c=(k*k+1)*x2*x2-r2*r2;
+    440          
+    441          			quadratic_equation(a,b,c,ans_qua_equ);
+    442          			if(ans_qua_equ[0]==2)
+    443          			{
+    444          				x33=ans_qua_equ[1];
+    445          				x44=ans_qua_equ[2];
+    446          				y33=k*x33-k*x2+y2;
+    447          				y44=k*x44-k*x2+y2;
+    448          
+    449          				if(x11==x33&&y11==y33)
+    450          				{
+    451          					ans_two_cir[0]=1;
+    452          					ans_two_cir[1]=x11;
+    453          					ans_two_cir[1]=y11;
+    454          					return;
+    455          				}
+    456          				if(x11==x44&&y11==44)
+    457          				{
+    458          					ans_two_cir[0]=1;
+    459          					ans_two_cir[1]=x11;
+    460          					ans_two_cir[1]=y11;
+    461          					return;
+    462          				}
+    463          				if(x22==x33&&y22==y33)
+    464          				{
+    465          					ans_two_cir[0]=1;
+    466          					ans_two_cir[1]=x22;
+    467          					ans_two_cir[1]=y22;
+    468          					return;
+    469          				}
+    470          				if(x22==x44&&y22==y44)
+    471          				{
+    472          					ans_two_cir[0]=1;
+    473          					ans_two_cir[1]=x22;
+    474          					ans_two_cir[1]=y22;
+    475          					return;
+    476          				}
+    477          				else
+    478          				{
+    479          					ans_two_cir[0]=0;
+    480          					return;
+    481          				}
+    482          			}
+    483          			else
+    484          			{
+    485          				ans_two_cir[0]=0;
+    486          				return;
+    487          			}		
+    488          
+    489          		}
+    490          		else
+    491          		{
+    492          			ans_two_cir[0]=0;
+    493          			return;
+    494          		}
+    495          	}
+    496          
+    497          	if( d<r1+r2 && d>fabs(r1-r2) )//////////////////////////////////////////////////////////////圆有两个交点
+    498          	{
+    499          
+    500          		d=sqrt( (x1-x2)*(x1-x2)+(y1-y2)*(y1-y2) );
+    501          		//////////////////////////////////////////////////////////////////////////算d1的值
+    502          		a=2;
+    503          		b=-2*d;
+    504          		c=r2*r2-r1*r1-d*d;
+    505          
+    506          		quadratic_equation(a,b,c,ans_qua_equ);
+    507          
+    508          		if(ans_qua_equ[0]==1)   /////////////////////////////////// 一个解
+    509          		{
+    510          			if(ans_qua_equ[1]>0)
+    511          			{
+    512          				d1=ans_qua_equ[1];
+    513          				d2=d-d1;
+    514          			}
+    515          			else
+    516          			{
+    517          				ans_two_cir[0]=0;
+    518          			    return;
+    519          			}
+    520          		}
+    521          		else
+    522          		{
+    523          			if(ans_qua_equ[0]==2)  /////////////////////////////////两个解
+    524          			{
+    525          				if(ans_qua_equ[1]>0)
+    526          				{
+    527          					d1=ans_qua_equ[1];
+    528          					d2=d-d1;
+    529          				}
+    530          				else
+    531          				{
+    532          					if(ans_qua_equ[2]>0)
+    533          					{
+    534          						d1=ans_qua_equ[2];
+    535          						d2=d-d1;
+    536          					}
+    537          					else
+    538          					{
+    539          						ans_two_cir[0]=0;
+    540          						return;
+    541          					}
+    542          				}
+    543          			}
+    544          			else
+    545          			{
+    546          				ans_two_cir[0]=0;
+    547          				return;
+    548          			}
+    549          
+    550          		}  ////////////////////////////////////////////////////////////// 判断d1的解结束
+    551          
+    552          		//////////////////////////////////////////////////////////////////求a的交点坐标
+    553          		k=(y1-y2)/(x1-x2);
+    554          		a=k*k+1;
+    555          		b=2*x1*(k*k+1);
+    556          		c=(k*k+1)*x1*x1-d1*d1;
+    557          		quadratic_equation(a,b,c,ans_qua_equ);
+    558          
+    559          		if(ans_qua_equ[0]==2)
+    560          		{
+    561          			x11=ans_qua_equ[1];
+    562          			y11=k*x11-k*x1+y1;
+    563          			x22=ans_qua_equ[2];
+    564          			y22=k*x22-k*x1+y1;
+    565          
+    566          			a=k*k+1;
+    567          			b=2*x2*(k*k+1);
+    568          			c=(k*k+1)*x2*x2-d2*d2;
+    569          			quadratic_equation(a,b,c,ans_qua_equ);
+    570          
+    571          			if(ans_qua_equ[0]==2)
+    572          			{
+    573          				x33=ans_qua_equ[1];
+    574          				x44=ans_qua_equ[2];
+    575          				y33=k*x33-k*x2+y2;
+    576          				y44=k*x44-k*x2+y2;
+    577          				
+    578          				if(x11==x33&&y11==y33)
+    579          				{	
+    580          					xa=x11;
+    581          					ya=y11;
+    582          				}
+    583          				if(x11==x44&&y11==y44)
+    584          				{
+    585          					xa=x11;
+    586          					ya=y11;
+    587          				}
+    588          				if(x22==x33&&y22==y33)
+    589          				{
+    590          					xa=x22;
+    591          					ya=y22;
+    592          				}
+    593          				if(x22==x44&&y22==y44)
+    594          				{
+    595          					xa=x22;
+    596          					ya=y22;
+    597          				}
+    598          				else
+    599          				{
+    600          					ans_two_cir[0]=0;
+    601          					return;
+    602          				}
+    603          			}
+    604          			else
+    605          			{
+    606          				ans_two_cir[0]=0;
+    607          				return;
+    608          			}
+    609          
+    610          		}
+    611          		else
+    612          		{
+    613          			ans_two_cir[0]=0;
+    614          			return;
+    615          		}/////////////////////////////////////////////////////////////求a的坐标结束
+    616          
+    617          ///////////////////////////////////////////////////////////////////////求圆的两个交点
+    618          
+    619          		k1=-1/k;
+    620          		temp=ya-y1-k1*xa;
+    621          
+    622          		a=k1*k1+1;
+    623          		b=-2*(x1+temp*k1);
+    624          		c=x1*x1+temp*temp;
+    625          
+    626          		quadratic_equation(a,b,c,ans_qua_equ);
+    627          
+    628          		if(ans_qua_equ[0]==2)
+    629          		{
+    630          			
+    631          			x11=ans_qua_equ[1];
+    632          			x22=ans_qua_equ[2];
+    633          			y11=k1*x11-k1*xa+ya;
+    634          			y22=k1*x22-k1*xa+ya;
+    635          
+    636          			ans_two_cir[0]=2;
+    637          			ans_two_cir[1]=x11;
+    638          			ans_two_cir[2]=y11;
+    639          			ans_two_cir[3]=x22;
+    640          			ans_two_cir[4]=y22;
+    641          			return;
+    642          		}
+    643          		else
+    644          		{
+    645          			ans_two_cir[0]=0;
+    646          			return;
+    647          		}
+    648          
+    649          //////////////////////////////////////////////////////////////////求圆的两个交点结束
+    650          	}//圆有两个交点
+    651          
+    652          
+    653          
+    654            
+    655            
+    656          }
+    657          //////////////////////////////////////////////////////////////////////// two_circle
+    658          
+    659          
+    660          
+    661          
+    662          
+    663          
+    664          
+    665          ///////////////////////////////////////////////////////////////////////////////////////////
+    666          ///
+    667          ////计算二次方程的解
+    668          void quadratic_equation(double a,double b,double c,double* ans_qua_equ)
+    669          {
+    670           	double p;               //判断有几个根
+    671          	p=b*b-4*a*c;
+    672          	if(p<0)
+    673          	{
+    674          		ans_qua_equ[0]=0;
+    675          		return;
+    676          	}
+    677          	if(p==0)
+    678          	{
+    679          		ans_qua_equ[0]=1;
+    680          		ans_qua_equ[1]=-b/(2*a);
+    681          		return;
+    682          	}
+    683          	if(p>0)
+    684          	{
+    685          		ans_qua_equ[0]=2;
+    686          		ans_qua_equ[1]=(-b+sqrt(p)) / (2*a);
+    687          		ans_qua_equ[2]=(-b-sqrt(p)) / (2*a);
+    688          		return;
+    689          	}
+    690            
+    691          }
+    692          ////////////////////////////////////////////////////////////////////////quadratic_equation
+    693          
+    694          */
+
+   Maximum stack usage in bytes:
+
+     Function                       ISTACK PSTACK XSTACK
+     --------                       ------ ------ ------
+     GenericApp_Init                    0      0     38
+       -> afRegister                    0      0     76
+       -> HalUARTOpen                   0      0     76
+     GenericApp_MessageMSGCB            2      0     12
+       -> HalUARTWrite                  4      0      0
+     GenericApp_ProcessEvent            0      0     12
+       -> osal_msg_receive              0      0     24
+       -> GenericApp_SendTheMessage     0      0     24
+       -> osal_msg_deallocate           0      0     24
+       -> osal_msg_receive              0      0     24
+       -> GenericApp_MessageMSGCB       0      0     24
+     GenericApp_SendTheMessage          0      0     43
+       -> AF_DataRequest                0      0     62
+
+
+   Segment part sizes:
+
+     Function/Label                    Bytes
+     --------------                    -----
+     GenericApp_ClusterListOutput         2
+     GenericApp_ClusterListInput          2
+     GenericApp_SimpleDesc               12
+     GenericApp_epDesc                    6
+     GenericApp_TaskID                    1
+     GenericApp_TransID                   1
+     GenericApp_NwkState                  1
+     GenericApp_Init                    107
+     GenericApp_ProcessEvent             98
+     GenericApp_SendTheMessage          112
+     cnt                                  2
+     ans                                 12
+     GenericApp_MessageMSGCB             53
+     ??GenericApp_Init?relay              6
+     ??GenericApp_ProcessEvent?relay      6
+     ??GenericApp_SendTheMessage?relay    6
+     ??GenericApp_MessageMSGCB?relay      6
+
+ 
+ 370 bytes in segment BANKED_CODE
+  24 bytes in segment BANK_RELAYS
+  16 bytes in segment XDATA_ROM_C
+  23 bytes in segment XDATA_Z
+ 
+ 394 bytes of CODE  memory
+  16 bytes of CONST memory
+  23 bytes of XDATA memory
+
+Errors: none
+Warnings: 2

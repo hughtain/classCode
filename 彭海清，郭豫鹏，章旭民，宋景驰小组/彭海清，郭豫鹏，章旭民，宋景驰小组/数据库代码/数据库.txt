@@ -1,0 +1,27 @@
+public void DataBase1(String s1,String s2,String s3) 
+	{ 
+	  
+		try
+		{     
+			 
+				String url = "jdbc:sqlserver://localhost:1433;DatabaseName=ch1";
+				String user = "sa";// 这里替换成你自已的数据库用户名
+				String password = "sa";// 这里替换成你自已的数据库用户密码
+				
+				Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+				Connection con = DriverManager.getConnection(url,user,password);
+				
+					PreparedStatement st = con.prepareStatement("INSERT INTO tem(wendu,shijian,wenduvalue) VALUES(?,?,?);"); 
+				     st.setString(1,s1);  //替换sql语句中的第一个“？”
+				     st.setString(2, s2); //替换sql语句中的第二个“？”
+				     st.setString(3, s3);
+				     st.executeUpdate();
+				
+			    
+			     
+			    
+		}catch(Exception e)
+		{
+			System.out.println(e.getMessage());
+		}
+	}

@@ -1,0 +1,2083 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V8.10.1.10194/W32 for 8051         18/Jun/2018  14:34:24 #
+# Copyright 2004-2011 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projects #
+#                          \zstack\Samples\GenericApp\Source\fengming.c       #
+#    Command line       =  -f "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Proj #
+#                          ects\zstack\Samples\GenericApp\CC2530DB\..\..\..\T #
+#                          ools\CC2530DB\f8wEndev.cfg" (-DCPU32MHZ            #
+#                          -DROOT=__near_func -DMAC_CFG_TX_DATA_MAX=3         #
+#                          -DMAC_CFG_TX_MAX=6 -DMAC_CFG_RX_MAX=3) -f          #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Project #
+#                          s\zstack\Samples\GenericApp\CC2530DB\..\..\..\Tool #
+#                          s\CC2530DB\f8wConfig.cfg" (-DZIGBEEPRO -DSECURE=0  #
+#                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                  #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DLINK_STATUS_JITTER_MASK=0x007F                   #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116                           #
+#                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const     #
+#                          __code" -DGENERIC=__generic                        #
+#                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000        #
+#                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)   #
+#                          -DREJOIN_POLL_RATE=440 "C:\Texas                   #
+#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
+#                          amples\GenericApp\Source\fengming.c" -D            #
+#                          NWK_AUTO_POLL -D ZTOOL_P1 -D MT_TASK -D            #
+#                          MT_SYS_FUNC -D MT_ZDO_FUNC -D LCD_SUPPORTED=DEBUG  #
+#                          -D xPOWER_SAVING -D HAL_UART=TRUE -lC "C:\Texas    #
+#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
+#                          amples\GenericApp\CC2530DB\EndDeviceEB\List\" -lA  #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Project #
+#                          s\zstack\Samples\GenericApp\CC2530DB\EndDeviceEB\L #
+#                          ist\" --diag_suppress Pe001,Pa010 -o "C:\Texas     #
+#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
+#                          amples\GenericApp\CC2530DB\EndDeviceEB\Obj\" -e    #
+#                          --no_code_motion --debug --core=plain --dptr=16,1  #
+#                          --data_model=large --code_model=banked             #
+#                          --calling_convention=xdata_reentrant               #
+#                          --place_constants=data_rom --nr_virtual_regs 16    #
+#                          -I "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Proj #
+#                          ects\zstack\Samples\GenericApp\CC2530DB\" -I       #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Project #
+#                          s\zstack\Samples\GenericApp\CC2530DB\..\Source\"   #
+#                          -I "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Proj #
+#                          ects\zstack\Samples\GenericApp\CC2530DB\..\..\..\Z #
+#                          Main\TI2530DB\" -I "C:\Texas                       #
+#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
+#                          amples\GenericApp\CC2530DB\..\..\..\..\..\Componen #
+#                          ts\hal\include\" -I "C:\Texas                      #
+#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
+#                          amples\GenericApp\CC2530DB\..\..\..\..\..\Componen #
+#                          ts\hal\target\CC2530EB\" -I "C:\Texas              #
+#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
+#                          amples\GenericApp\CC2530DB\..\..\..\..\..\Componen #
+#                          ts\mac\include\" -I "C:\Texas                      #
+#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
+#                          amples\GenericApp\CC2530DB\..\..\..\..\..\Componen #
+#                          ts\mac\high_level\" -I "C:\Texas                   #
+#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
+#                          amples\GenericApp\CC2530DB\..\..\..\..\..\Componen #
+#                          ts\mac\low_level\srf04\" -I "C:\Texas              #
+#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
+#                          amples\GenericApp\CC2530DB\..\..\..\..\..\Componen #
+#                          ts\mac\low_level\srf04\single_chip\" -I "C:\Texas  #
+#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
+#                          amples\GenericApp\CC2530DB\..\..\..\..\..\Componen #
+#                          ts\mt\" -I "C:\Texas Instruments\ZStack-CC2530-2.5 #
+#                          .1a\Projects\zstack\Samples\GenericApp\CC2530DB\.. #
+#                          \..\..\..\..\Components\osal\include\" -I          #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Project #
+#                          s\zstack\Samples\GenericApp\CC2530DB\..\..\..\..\. #
+#                          .\Components\services\saddr\" -I "C:\Texas         #
+#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
+#                          amples\GenericApp\CC2530DB\..\..\..\..\..\Componen #
+#                          ts\services\sdata\" -I "C:\Texas                   #
+#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
+#                          amples\GenericApp\CC2530DB\..\..\..\..\..\Componen #
+#                          ts\stack\af\" -I "C:\Texas                         #
+#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
+#                          amples\GenericApp\CC2530DB\..\..\..\..\..\Componen #
+#                          ts\stack\nwk\" -I "C:\Texas                        #
+#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
+#                          amples\GenericApp\CC2530DB\..\..\..\..\..\Componen #
+#                          ts\stack\sapi\" -I "C:\Texas                       #
+#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
+#                          amples\GenericApp\CC2530DB\..\..\..\..\..\Componen #
+#                          ts\stack\sec\" -I "C:\Texas                        #
+#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
+#                          amples\GenericApp\CC2530DB\..\..\..\..\..\Componen #
+#                          ts\stack\sys\" -I "C:\Texas                        #
+#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
+#                          amples\GenericApp\CC2530DB\..\..\..\..\..\Componen #
+#                          ts\stack\zdo\" -I "C:\Texas                        #
+#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
+#                          amples\GenericApp\CC2530DB\..\..\..\..\..\Componen #
+#                          ts\zmac\" -I "C:\Texas Instruments\ZStack-CC2530-2 #
+#                          .5.1a\Projects\zstack\Samples\GenericApp\CC2530DB\ #
+#                          ..\..\..\..\..\Components\zmac\f8w\" -Ohz          #
+#                          --require_prototypes                               #
+#    List file          =  C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projects #
+#                          \zstack\Samples\GenericApp\CC2530DB\EndDeviceEB\Li #
+#                          st\fengming.lst                                    #
+#    Object file        =  C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projects #
+#                          \zstack\Samples\GenericApp\CC2530DB\EndDeviceEB\Ob #
+#                          j\fengming.r51                                     #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\GenericApp\Source\fengming.c
+      1          #include "OSAL.h"
+      2          #include "AF.h"
+      3          #include "ZDApp.h"
+      4          #include "ZDObject.h"
+      5          #include "ZDProfile.h"
+      6          
+      7          #include <ioCC2530.h>
+
+   \                                 In  segment SFR_AN, at 0x90
+   \   union <unnamed> volatile __sfr _A_P1
+   \                     _A_P1:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xa8
+   \   union <unnamed> volatile __sfr _A_IEN0
+   \                     _A_IEN0:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xb8
+   \   union <unnamed> volatile __sfr _A_IEN1
+   \                     _A_IEN1:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xc0
+   \   union <unnamed> volatile __sfr _A_IRCON
+   \                     _A_IRCON:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xcb
+   \   unsigned char volatile __sfr T3CTL
+   \                     T3CTL:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xfe
+   \   unsigned char volatile __sfr P1DIR
+   \                     P1DIR:
+   \   000000                DS 1
+      8          #include "OnBoard.h"
+      9          #include <string.h>
+     10          //#include "HAL_Type.h"
+     11          
+     12          #include "Coordinator.h"
+     13          #include "DebugTrace.h"
+     14          #if !defined( WIN32 )
+     15            #include "OnBoard.h"
+     16          #endif
+     17          
+     18          #include "hal_lcd.h"
+     19          #include "hal_led.h"
+     20          #include "hal_key.h"
+     21          #include "hal_uart.h"
+     22          #define SEND_DATA_EVENT 0x01
+     23          #pragma vector = T3_VECTOR 
+                         ^
+Warning[Pe609]: this kind of pragma may not be used here
+     24          
+     25          #define buzzer P1_0
+     26          
+     27          
+     28          typedef unsigned int  uint;
+     29          #define ulong unsigned long
+     30          
+     31          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+     32          const cId_t GenericApp_ClusterList[GENERICAPP_MAX_CLUSTERS] =
+   \                     GenericApp_ClusterList:
+   \   000000   0100         DW 1
+     33          {
+     34            GENERICAPP_CLUSTERID
+     35          };
+
+   \                                 In  segment XDATA_ROM_C, align 1
+     36          const SimpleDescriptionFormat_t GenericApp_SimpleDesc =
+   \                     GenericApp_SimpleDesc:
+   \   000000   0A           DB 10
+   \   000001   040F         DW 3844
+   \   000003   0100         DW 1
+   \   000005   00           DB 0
+   \   000006   01           DB 1
+   \   000007   ....         DW GenericApp_ClusterList
+   \   000009   01           DB 1
+   \   00000A   ....         DW GenericApp_ClusterList
+     37          {
+     38            GENERICAPP_ENDPOINT,              //  int Endpoint;
+     39            GENERICAPP_PROFID,                //  uint16 AppProfId[2];
+     40            GENERICAPP_DEVICEID,              //  uint16 AppDeviceId[2];
+     41            GENERICAPP_DEVICE_VERSION,        //  int   AppDevVer:4;
+     42            GENERICAPP_FLAGS,
+     43           GENERICAPP_MAX_CLUSTERS,
+     44            (cId_t *)GenericApp_ClusterList,
+     45            GENERICAPP_MAX_CLUSTERS,          //  byte  AppNumInClusters;
+     46            (cId_t *)GenericApp_ClusterList  //  byte *pAppInClusterList;
+     47          };
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     48          endPointDesc_t GenericApp_epDesc;
+   \                     GenericApp_epDesc:
+   \   000000                DS 6
+   \   000006                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     49          byte GenericApp_TaskID;   // Task ID for internal task/event processing
+   \                     GenericApp_TaskID:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+     50                                    // This variable will be received when
+     51                                    // GenericApp_Init() is called.
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     52          byte GenericApp_TransID;
+   \                     GenericApp_TransID:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     53          devStates_t GenericApp_NwkState;
+   \                     GenericApp_NwkState:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+     54           void GenericApp_MessageMSGCB( afIncomingMSGPacket_t *pckt );
+     55          // void GenericApp_SendTheMessage( void );
+     56           
+     57           void Delay_us(void);
+     58           void Delay_10us(void);
+     59           void Delay_ms(uint Time);
+     60           void IO_Init(void);
+     61           void InitT3(void);
+     62           void delay2(uchar t);
+     63           void song(uchar const __code *str);
+     64           void singachar(void);
+     65          __interrupt void T3_ISR(void);
+     66             
+     67            
+     68           //static void rxCB(uint8 port,uint8 event);
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     69           unsigned char uartbuf[20];
+   \                     uartbuf:
+   \   000000                DS 20
+   \   000014                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_I, align 1, keep-with-next
+     70           unsigned char theMessageData[4] = "LED";
+   \                     theMessageData:
+   \   000000                DS 4
+   \   000004                REQUIRE `?<Initializer for theMessageData>`
+   \   000004                REQUIRE __INIT_XDATA_I
+     71           //温湿度定义
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     72          uchar ucharFLAG,uchartemp;
+   \                     ucharFLAG:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+   \                     uchartemp:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     73          uchar shidu_shi,shidu_ge,wendu_shi,wendu_ge=4;
+   \                     shidu_shi:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+   \                     shidu_ge:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+   \                     wendu_shi:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_I, align 1, keep-with-next
+   \                     wendu_ge:
+   \   000000                DS 1
+   \   000001                REQUIRE `?<Initializer for wendu_ge>`
+   \   000001                REQUIRE __INIT_XDATA_I
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     74          uchar ucharT_data_H,ucharT_data_L,ucharRH_data_H,ucharRH_data_L,ucharcheckdata;
+   \                     ucharT_data_H:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+   \                     ucharT_data_L:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+   \                     ucharRH_data_H:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+   \                     ucharRH_data_L:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+   \                     ucharcheckdata:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     75          uchar ucharT_data_H_temp,ucharT_data_L_temp,ucharRH_data_H_temp,ucharRH_data_L_temp,ucharcheckdata_temp;
+   \                     ucharT_data_H_temp:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+   \                     ucharT_data_L_temp:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+   \                     ucharRH_data_H_temp:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+   \                     ucharRH_data_L_temp:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+   \                     ucharcheckdata_temp:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     76          uchar ucharcomdata;
+   \                     ucharcomdata:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     77          uchar time, count,t3count;//用于定时器计数
+   \                     time:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+   \                     count:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+   \                     t3count:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+     78          
+     79          
+     80          
+     81          // 频率周期数据表 
+
+   \                                 In  segment CODE_C, align 1
+     82          __code const uchar FREQL[] = {1, //0的时候没有音符
+   \                     FREQL:
+   \   000000   01           DB 1
+   \   000001   EF           DB 239
+   \   000002   D5           DB 213
+   \   000003   BD           DB 189
+   \   000004   B3           DB 179
+   \   000005   9F           DB 159
+   \   000006   8E           DB 142
+   \   000007   7F           DB 127
+   \   000008   77           DB 119
+   \   000009   6A           DB 106
+   \   00000A   5F           DB 95
+   \   00000B   5A           DB 90
+   \   00000C   50           DB 80
+   \   00000D   47           DB 71
+   \   00000E   3F           DB 63
+   \   00000F   3C           DB 60
+   \   000010   35           DB 53
+   \   000011   30           DB 48
+   \   000012   2D           DB 45
+   \   000013   28           DB 40
+   \   000014   24           DB 36
+   \   000015   20           DB 32
+   \   000016   1E           DB 30
+   \   000017   1B           DB 27
+   \   000018   18           DB 24
+   \   000019   16           DB 22
+   \   00001A   14           DB 20
+   \   00001B   12           DB 18
+   \   00001C   10           DB 16
+     83          239, 213, 189, 179, 159, 142, 127, //低音1234567  3.817ms 3.401ms 3.030ms 2.858ms 2.552ms 2.273ms 2.024ms
+     84          119, 106, 95, 90, 80, 71, 63, 60,//1,2,3,4,5,6,7,i  1.908ms 1.700ms 1.514ms 1.432ms  1.276ms 1.136ms 1.012ms 0.955ms
+     85          53, 48, 45, 40, 36, 32, //高音 234567  0.852ms  0.759ms 0.717ms 0.638ms 0.568ms 0.506ms
+     86          30, 27, 24, 22, 20, 18, 16}; 
+     87          
+     88          
+
+   \                                 In  segment CODE_C, align 1
+     89          __code const uchar sszymmh[] = {
+   \                     sszymmh:
+   \   000000   06           DB 6
+   \   000001   02           DB 2
+   \   000002   06           DB 6
+   \   000003   05           DB 5
+   \   000004   02           DB 2
+   \   000005   02           DB 2
+   \   000006   03           DB 3
+   \   000007   02           DB 2
+   \   000008   04           DB 4
+   \   000009   05           DB 5
+   \   00000A   02           DB 2
+   \   00000B   04           DB 4
+   \   00000C   01           DB 1
+   \   00000D   03           DB 3
+   \   00000E   04           DB 4
+   \   00000F   06           DB 6
+   \   000010   02           DB 2
+   \   000011   02           DB 2
+   \   000012   05           DB 5
+   \   000013   02           DB 2
+   \   000014   02           DB 2
+   \   000015   06           DB 6
+   \   000016   02           DB 2
+   \   000017   08           DB 8
+   \   000018   03           DB 3
+   \   000019   02           DB 2
+   \   00001A   04           DB 4
+   \   00001B   05           DB 5
+   \   00001C   02           DB 2
+   \   00001D   02           DB 2
+   \   00001E   06           DB 6
+   \   00001F   02           DB 2
+   \   000020   02           DB 2
+   \   000021   05           DB 5
+   \   000022   02           DB 2
+   \   000023   04           DB 4
+   \   000024   03           DB 3
+   \   000025   02           DB 2
+   \   000026   04           DB 4
+   \   000027   01           DB 1
+   \   000028   02           DB 2
+   \   000029   02           DB 2
+   \   00002A   06           DB 6
+   \   00002B   01           DB 1
+   \   00002C   02           DB 2
+   \   00002D   05           DB 5
+   \   00002E   02           DB 2
+   \   00002F   02           DB 2
+   \   000030   03           DB 3
+   \   000031   02           DB 2
+   \   000032   02           DB 2
+   \   000033   02           DB 2
+   \   000034   02           DB 2
+   \   000035   08           DB 8
+   \   000036   02           DB 2
+   \   000037   02           DB 2
+   \   000038   06           DB 6
+   \   000039   03           DB 3
+   \   00003A   02           DB 2
+   \   00003B   02           DB 2
+   \   00003C   05           DB 5
+   \   00003D   02           DB 2
+   \   00003E   04           DB 4
+   \   00003F   05           DB 5
+   \   000040   02           DB 2
+   \   000041   02           DB 2
+   \   000042   06           DB 6
+   \   000043   02           DB 2
+   \   000044   02           DB 2
+   \   000045   03           DB 3
+   \   000046   02           DB 2
+   \   000047   04           DB 4
+   \   000048   02           DB 2
+   \   000049   02           DB 2
+   \   00004A   04           DB 4
+   \   00004B   01           DB 1
+   \   00004C   02           DB 2
+   \   00004D   08           DB 8
+   \   00004E   05           DB 5
+   \   00004F   02           DB 2
+   \   000050   06           DB 6
+   \   000051   03           DB 3
+   \   000052   02           DB 2
+   \   000053   02           DB 2
+   \   000054   02           DB 2
+   \   000055   02           DB 2
+   \   000056   02           DB 2
+   \   000057   01           DB 1
+   \   000058   02           DB 2
+   \   000059   02           DB 2
+   \   00005A   06           DB 6
+   \   00005B   01           DB 1
+   \   00005C   02           DB 2
+   \   00005D   01           DB 1
+   \   00005E   02           DB 2
+   \   00005F   02           DB 2
+   \   000060   05           DB 5
+   \   000061   01           DB 1
+   \   000062   10           DB 16
+   \   000063   00           DB 0
+   \   000064   00           DB 0
+   \   000065   00           DB 0
+     90          6,2,6, 5,2,2, 3,2,4, 5,2,4,
+     91          1,3,4, 6,2,2, 5,2,2, 6,2,8,
+     92          3,2,4, 5,2,2, 6,2,2, 5,2,4,
+     93          3,2,4, 1,2,2, 6,1,2, 5,2,2,
+     94          3,2,2, 2,2,8, 2,2,6, 3,2,2,
+     95          5,2,4, 5,2,2, 6,2,2, 3,2,4,
+     96          2,2,4, 1,2,8, 5,2,6, 3,2,2,
+     97          2,2,2, 1,2,2, 6,1,2, 1,2,2,
+     98          5,1,16, 0,0,0};
+     99          
+
+   \                                 In  segment CODE_C, align 1
+    100           __code const uchar TwoMouse[]={
+   \                     TwoMouse:
+   \   000000   03           DB 3
+   \   000001   02           DB 2
+   \   000002   02           DB 2
+   \   000003   06           DB 6
+   \   000004   02           DB 2
+   \   000005   02           DB 2
+   \   000006   07           DB 7
+   \   000007   02           DB 2
+   \   000008   02           DB 2
+   \   000009   05           DB 5
+   \   00000A   02           DB 2
+   \   00000B   02           DB 2
+   \   00000C   03           DB 3
+   \   00000D   02           DB 2
+   \   00000E   02           DB 2
+   \   00000F   06           DB 6
+   \   000010   02           DB 2
+   \   000011   02           DB 2
+   \   000012   07           DB 7
+   \   000013   02           DB 2
+   \   000014   02           DB 2
+   \   000015   05           DB 5
+   \   000016   02           DB 2
+   \   000017   02           DB 2
+   \   000018   07           DB 7
+   \   000019   02           DB 2
+   \   00001A   02           DB 2
+   \   00001B   01           DB 1
+   \   00001C   03           DB 3
+   \   00001D   02           DB 2
+   \   00001E   02           DB 2
+   \   00001F   03           DB 3
+   \   000020   04           DB 4
+   \   000021   07           DB 7
+   \   000022   02           DB 2
+   \   000023   02           DB 2
+   \   000024   01           DB 1
+   \   000025   03           DB 3
+   \   000026   02           DB 2
+   \   000027   02           DB 2
+   \   000028   03           DB 3
+   \   000029   04           DB 4
+   \   00002A   02           DB 2
+   \   00002B   03           DB 3
+   \   00002C   01           DB 1
+   \   00002D   03           DB 3
+   \   00002E   03           DB 3
+   \   00002F   01           DB 1
+   \   000030   02           DB 2
+   \   000031   03           DB 3
+   \   000032   01           DB 1
+   \   000033   01           DB 1
+   \   000034   03           DB 3
+   \   000035   01           DB 1
+   \   000036   07           DB 7
+   \   000037   02           DB 2
+   \   000038   02           DB 2
+   \   000039   05           DB 5
+   \   00003A   02           DB 2
+   \   00003B   02           DB 2
+   \   00003C   02           DB 2
+   \   00003D   03           DB 3
+   \   00003E   01           DB 1
+   \   00003F   03           DB 3
+   \   000040   03           DB 3
+   \   000041   01           DB 1
+   \   000042   02           DB 2
+   \   000043   03           DB 3
+   \   000044   01           DB 1
+   \   000045   01           DB 1
+   \   000046   03           DB 3
+   \   000047   01           DB 1
+   \   000048   07           DB 7
+   \   000049   02           DB 2
+   \   00004A   02           DB 2
+   \   00004B   05           DB 5
+   \   00004C   02           DB 2
+   \   00004D   02           DB 2
+   \   00004E   06           DB 6
+   \   00004F   02           DB 2
+   \   000050   02           DB 2
+   \   000051   02           DB 2
+   \   000052   02           DB 2
+   \   000053   02           DB 2
+   \   000054   05           DB 5
+   \   000055   02           DB 2
+   \   000056   04           DB 4
+   \   000057   06           DB 6
+   \   000058   02           DB 2
+   \   000059   02           DB 2
+   \   00005A   02           DB 2
+   \   00005B   02           DB 2
+   \   00005C   02           DB 2
+   \   00005D   05           DB 5
+   \   00005E   02           DB 2
+   \   00005F   04           DB 4
+   \   000060   00           DB 0
+   \   000061   00           DB 0
+   \   000062   00           DB 0
+    101          3,2,2, 6,2,2, 7,2,2, 5,2,2,
+    102          3,2,2, 6,2,2, 7,2,2, 5,2,2,
+    103          7,2,2, 1,3,2, 2,3,4,
+    104          7,2,2, 1,3,2, 2,3,4,
+    105          2,3,1, 3,3,1, 2,3,1, 1,3,1, 7,2,2, 5,2,2,
+    106          2,3,1, 3,3,1, 2,3,1, 1,3,1, 7,2,2, 5,2,2,
+    107          6,2,2, 2,2,2, 5,2,4, 6,2,2, 2,2,2, 5,2,4,
+    108          0,0,0};
+    109          
+
+   \                                 In  segment CODE_C, align 1
+    110          __code const uchar TwoButterfly[]={
+   \                     TwoButterfly:
+   \   000000   03           DB 3
+   \   000001   02           DB 2
+   \   000002   02           DB 2
+   \   000003   02           DB 2
+   \   000004   02           DB 2
+   \   000005   02           DB 2
+   \   000006   03           DB 3
+   \   000007   02           DB 2
+   \   000008   06           DB 6
+   \   000009   03           DB 3
+   \   00000A   02           DB 2
+   \   00000B   02           DB 2
+   \   00000C   03           DB 3
+   \   00000D   02           DB 2
+   \   00000E   02           DB 2
+   \   00000F   02           DB 2
+   \   000010   02           DB 2
+   \   000011   02           DB 2
+   \   000012   01           DB 1
+   \   000013   02           DB 2
+   \   000014   06           DB 6
+   \   000015   06           DB 6
+   \   000016   01           DB 1
+   \   000017   02           DB 2
+   \   000018   01           DB 1
+   \   000019   02           DB 2
+   \   00001A   02           DB 2
+   \   00001B   02           DB 2
+   \   00001C   02           DB 2
+   \   00001D   04           DB 4
+   \   00001E   02           DB 2
+   \   00001F   02           DB 2
+   \   000020   02           DB 2
+   \   000021   03           DB 3
+   \   000022   02           DB 2
+   \   000023   02           DB 2
+   \   000024   02           DB 2
+   \   000025   02           DB 2
+   \   000026   02           DB 2
+   \   000027   01           DB 1
+   \   000028   02           DB 2
+   \   000029   02           DB 2
+   \   00002A   06           DB 6
+   \   00002B   01           DB 1
+   \   00002C   02           DB 2
+   \   00002D   01           DB 1
+   \   00002E   02           DB 2
+   \   00002F   02           DB 2
+   \   000030   05           DB 5
+   \   000031   01           DB 1
+   \   000032   0C           DB 12
+   \   000033   03           DB 3
+   \   000034   02           DB 2
+   \   000035   02           DB 2
+   \   000036   02           DB 2
+   \   000037   02           DB 2
+   \   000038   02           DB 2
+   \   000039   03           DB 3
+   \   00003A   02           DB 2
+   \   00003B   08           DB 8
+   \   00003C   03           DB 3
+   \   00003D   02           DB 2
+   \   00003E   02           DB 2
+   \   00003F   02           DB 2
+   \   000040   02           DB 2
+   \   000041   02           DB 2
+   \   000042   03           DB 3
+   \   000043   02           DB 2
+   \   000044   02           DB 2
+   \   000045   03           DB 3
+   \   000046   02           DB 2
+   \   000047   02           DB 2
+   \   000048   01           DB 1
+   \   000049   02           DB 2
+   \   00004A   0C           DB 12
+   \   00004B   06           DB 6
+   \   00004C   01           DB 1
+   \   00004D   02           DB 2
+   \   00004E   01           DB 1
+   \   00004F   02           DB 2
+   \   000050   02           DB 2
+   \   000051   02           DB 2
+   \   000052   02           DB 2
+   \   000053   04           DB 4
+   \   000054   02           DB 2
+   \   000055   02           DB 2
+   \   000056   02           DB 2
+   \   000057   03           DB 3
+   \   000058   02           DB 2
+   \   000059   02           DB 2
+   \   00005A   02           DB 2
+   \   00005B   02           DB 2
+   \   00005C   02           DB 2
+   \   00005D   01           DB 1
+   \   00005E   02           DB 2
+   \   00005F   02           DB 2
+   \   000060   06           DB 6
+   \   000061   01           DB 1
+   \   000062   02           DB 2
+   \   000063   01           DB 1
+   \   000064   02           DB 2
+   \   000065   02           DB 2
+   \   000066   02           DB 2
+   \   000067   02           DB 2
+   \   000068   0C           DB 12
+   \   000069   03           DB 3
+   \   00006A   02           DB 2
+   \   00006B   02           DB 2
+   \   00006C   02           DB 2
+   \   00006D   02           DB 2
+   \   00006E   02           DB 2
+   \   00006F   03           DB 3
+   \   000070   02           DB 2
+   \   000071   08           DB 8
+   \   000072   03           DB 3
+   \   000073   02           DB 2
+   \   000074   02           DB 2
+   \   000075   02           DB 2
+   \   000076   02           DB 2
+   \   000077   02           DB 2
+   \   000078   03           DB 3
+   \   000079   02           DB 2
+   \   00007A   02           DB 2
+   \   00007B   02           DB 2
+   \   00007C   02           DB 2
+   \   00007D   02           DB 2
+   \   00007E   01           DB 1
+   \   00007F   02           DB 2
+   \   000080   0C           DB 12
+   \   000081   06           DB 6
+   \   000082   01           DB 1
+   \   000083   02           DB 2
+   \   000084   01           DB 1
+   \   000085   02           DB 2
+   \   000086   02           DB 2
+   \   000087   02           DB 2
+   \   000088   02           DB 2
+   \   000089   04           DB 4
+   \   00008A   02           DB 2
+   \   00008B   02           DB 2
+   \   00008C   02           DB 2
+   \   00008D   03           DB 3
+   \   00008E   02           DB 2
+   \   00008F   02           DB 2
+   \   000090   02           DB 2
+   \   000091   02           DB 2
+   \   000092   02           DB 2
+   \   000093   01           DB 1
+   \   000094   02           DB 2
+   \   000095   02           DB 2
+   \   000096   06           DB 6
+   \   000097   01           DB 1
+   \   000098   02           DB 2
+   \   000099   01           DB 1
+   \   00009A   02           DB 2
+   \   00009B   02           DB 2
+   \   00009C   05           DB 5
+   \   00009D   02           DB 2
+   \   00009E   0C           DB 12
+   \   00009F   03           DB 3
+   \   0000A0   02           DB 2
+   \   0000A1   02           DB 2
+   \   0000A2   05           DB 5
+   \   0000A3   02           DB 2
+   \   0000A4   02           DB 2
+   \   0000A5   05           DB 5
+   \   0000A6   02           DB 2
+   \   0000A7   08           DB 8
+   \   0000A8   05           DB 5
+   \   0000A9   02           DB 2
+   \   0000AA   02           DB 2
+   \   0000AB   05           DB 5
+   \   0000AC   02           DB 2
+   \   0000AD   02           DB 2
+   \   0000AE   06           DB 6
+   \   0000AF   02           DB 2
+   \   0000B0   02           DB 2
+   \   0000B1   05           DB 5
+   \   0000B2   02           DB 2
+   \   0000B3   02           DB 2
+   \   0000B4   03           DB 3
+   \   0000B5   02           DB 2
+   \   0000B6   0C           DB 12
+   \   0000B7   02           DB 2
+   \   0000B8   02           DB 2
+   \   0000B9   02           DB 2
+   \   0000BA   03           DB 3
+   \   0000BB   02           DB 2
+   \   0000BC   02           DB 2
+   \   0000BD   02           DB 2
+   \   0000BE   02           DB 2
+   \   0000BF   04           DB 4
+   \   0000C0   02           DB 2
+   \   0000C1   02           DB 2
+   \   0000C2   02           DB 2
+   \   0000C3   03           DB 3
+   \   0000C4   02           DB 2
+   \   0000C5   02           DB 2
+   \   0000C6   02           DB 2
+   \   0000C7   02           DB 2
+   \   0000C8   02           DB 2
+   \   0000C9   01           DB 1
+   \   0000CA   02           DB 2
+   \   0000CB   02           DB 2
+   \   0000CC   06           DB 6
+   \   0000CD   01           DB 1
+   \   0000CE   02           DB 2
+   \   0000CF   06           DB 6
+   \   0000D0   01           DB 1
+   \   0000D1   01           DB 1
+   \   0000D2   01           DB 1
+   \   0000D3   02           DB 2
+   \   0000D4   01           DB 1
+   \   0000D5   01           DB 1
+   \   0000D6   02           DB 2
+   \   0000D7   01           DB 1
+   \   0000D8   01           DB 1
+   \   0000D9   02           DB 2
+   \   0000DA   01           DB 1
+   \   0000DB   01           DB 1
+   \   0000DC   02           DB 2
+   \   0000DD   0C           DB 12
+   \   0000DE   00           DB 0
+   \   0000DF   00           DB 0
+   \   0000E0   04           DB 4
+   \   0000E1   05           DB 5
+   \   0000E2   02           DB 2
+   \   0000E3   02           DB 2
+   \   0000E4   05           DB 5
+   \   0000E5   02           DB 2
+   \   0000E6   02           DB 2
+   \   0000E7   06           DB 6
+   \   0000E8   02           DB 2
+   \   0000E9   02           DB 2
+   \   0000EA   01           DB 1
+   \   0000EB   03           DB 3
+   \   0000EC   02           DB 2
+   \   0000ED   07           DB 7
+   \   0000EE   02           DB 2
+   \   0000EF   02           DB 2
+   \   0000F0   07           DB 7
+   \   0000F1   02           DB 2
+   \   0000F2   02           DB 2
+   \   0000F3   06           DB 6
+   \   0000F4   02           DB 2
+   \   0000F5   02           DB 2
+   \   0000F6   03           DB 3
+   \   0000F7   02           DB 2
+   \   0000F8   02           DB 2
+   \   0000F9   02           DB 2
+   \   0000FA   02           DB 2
+   \   0000FB   02           DB 2
+   \   0000FC   02           DB 2
+   \   0000FD   02           DB 2
+   \   0000FE   02           DB 2
+   \   0000FF   03           DB 3
+   \   000100   02           DB 2
+   \   000101   02           DB 2
+   \   000102   03           DB 3
+   \   000103   02           DB 2
+   \   000104   08           DB 8
+   \   000105   03           DB 3
+   \   000106   02           DB 2
+   \   000107   02           DB 2
+   \   000108   03           DB 3
+   \   000109   02           DB 2
+   \   00010A   02           DB 2
+   \   00010B   05           DB 5
+   \   00010C   02           DB 2
+   \   00010D   02           DB 2
+   \   00010E   06           DB 6
+   \   00010F   02           DB 2
+   \   000110   04           DB 4
+   \   000111   06           DB 6
+   \   000112   02           DB 2
+   \   000113   06           DB 6
+   \   000114   06           DB 6
+   \   000115   01           DB 1
+   \   000116   02           DB 2
+   \   000117   03           DB 3
+   \   000118   02           DB 2
+   \   000119   02           DB 2
+   \   00011A   02           DB 2
+   \   00011B   02           DB 2
+   \   00011C   02           DB 2
+   \   00011D   02           DB 2
+   \   00011E   02           DB 2
+   \   00011F   0C           DB 12
+   \   000120   03           DB 3
+   \   000121   02           DB 2
+   \   000122   02           DB 2
+   \   000123   05           DB 5
+   \   000124   02           DB 2
+   \   000125   02           DB 2
+   \   000126   05           DB 5
+   \   000127   02           DB 2
+   \   000128   02           DB 2
+   \   000129   03           DB 3
+   \   00012A   02           DB 2
+   \   00012B   02           DB 2
+   \   00012C   05           DB 5
+   \   00012D   02           DB 2
+   \   00012E   04           DB 4
+   \   00012F   01           DB 1
+   \   000130   03           DB 3
+   \   000131   04           DB 4
+   \   000132   07           DB 7
+   \   000133   02           DB 2
+   \   000134   02           DB 2
+   \   000135   06           DB 6
+   \   000136   02           DB 2
+   \   000137   02           DB 2
+   \   000138   07           DB 7
+   \   000139   02           DB 2
+   \   00013A   02           DB 2
+   \   00013B   03           DB 3
+   \   00013C   02           DB 2
+   \   00013D   04           DB 4
+   \   00013E   06           DB 6
+   \   00013F   02           DB 2
+   \   000140   02           DB 2
+   \   000141   06           DB 6
+   \   000142   02           DB 2
+   \   000143   02           DB 2
+   \   000144   07           DB 7
+   \   000145   02           DB 2
+   \   000146   02           DB 2
+   \   000147   06           DB 6
+   \   000148   02           DB 2
+   \   000149   02           DB 2
+   \   00014A   05           DB 5
+   \   00014B   02           DB 2
+   \   00014C   02           DB 2
+   \   00014D   03           DB 3
+   \   00014E   02           DB 2
+   \   00014F   02           DB 2
+   \   000150   02           DB 2
+   \   000151   02           DB 2
+   \   000152   04           DB 4
+   \   000153   03           DB 3
+   \   000154   02           DB 2
+   \   000155   02           DB 2
+   \   000156   02           DB 2
+   \   000157   02           DB 2
+   \   000158   02           DB 2
+   \   000159   03           DB 3
+   \   00015A   02           DB 2
+   \   00015B   02           DB 2
+   \   00015C   05           DB 5
+   \   00015D   02           DB 2
+   \   00015E   06           DB 6
+   \   00015F   05           DB 5
+   \   000160   02           DB 2
+   \   000161   02           DB 2
+   \   000162   05           DB 5
+   \   000163   02           DB 2
+   \   000164   02           DB 2
+   \   000165   06           DB 6
+   \   000166   02           DB 2
+   \   000167   02           DB 2
+   \   000168   06           DB 6
+   \   000169   02           DB 2
+   \   00016A   02           DB 2
+   \   00016B   05           DB 5
+   \   00016C   02           DB 2
+   \   00016D   02           DB 2
+   \   00016E   03           DB 3
+   \   00016F   02           DB 2
+   \   000170   02           DB 2
+   \   000171   02           DB 2
+   \   000172   02           DB 2
+   \   000173   04           DB 4
+   \   000174   05           DB 5
+   \   000175   01           DB 1
+   \   000176   02           DB 2
+   \   000177   05           DB 5
+   \   000178   01           DB 1
+   \   000179   02           DB 2
+   \   00017A   06           DB 6
+   \   00017B   01           DB 1
+   \   00017C   02           DB 2
+   \   00017D   01           DB 1
+   \   00017E   02           DB 2
+   \   00017F   0C           DB 12
+   \   000180   00           DB 0
+   \   000181   00           DB 0
+   \   000182   00           DB 0
+    111          3,2,2, 2,2,2, 3,2,6, 3,2,2, 3,2,2, 2,2,2,
+    112          1,2,6, 6,1,2, 1,2,2, 2,2,4, 2,2,2, 3,2,2,
+    113          2,2,2, 1,2,2, 6,1,2, 1,2,2, 5,1,12,3,2,2,
+    114          2,2,2, 3,2,8, 3,2,2, 2,2,2, 3,2,2, 3,2,2,
+    115          1,2,12,6,1,2, 1,2,2, 2,2,4, 2,2,2, 3,2,2,
+    116          2,2,2, 1,2,2, 6,1,2, 1,2,2, 2,2,12,3,2,2,
+    117          2,2,2, 3,2,8, 3,2,2, 2,2,2, 3,2,2, 2,2,2,
+    118          1,2,12,6,1,2, 1,2,2, 2,2,4, 2,2,2, 3,2,2,
+    119          2,2,2, 1,2,2, 6,1,2, 1,2,2, 5,2,12,3,2,2,
+    120          5,2,2, 5,2,8, 5,2,2, 5,2,2, 6,2,2, 5,2,2,
+    121          3,2,12,2,2,2, 3,2,2, 2,2,4, 2,2,2, 3,2,2,
+    122          2,2,2, 1,2,2, 6,1,2, 6,1,1, 1,2,1, 1,2,1,
+    123          1,2,1, 1,2,12,0,0,4, 5,2,2, 5,2,2, 6,2,2,
+    124          1,3,2, 7,2,2, 7,2,2, 6,2,2, 3,2,2, 2,2,2,
+    125          2,2,2, 3,2,2, 3,2,8, 3,2,2, 3,2,2,
+    126          5,2,2, 6,2,4, 6,2,6, 6,1,2, 3,2,2, 2,2,2,
+    127          2,2,12,3,2,2, 5,2,2, 5,2,2, 3,2,2, 5,2,4,
+    128          1,3,4, 7,2,2, 6,2,2, 7,2,2, 3,2,4,
+    129          6,2,2, 6,2,2, 7,2,2, 6,2,2, 5,2,2,
+    130          3,2,2, 2,2,4, 3,2,2, 2,2,2, 3,2,2, 5,2,6,
+    131          5,2,2, 5,2,2, 6,2,2, 6,2,2, 5,2,2,
+    132          3,2,2, 2,2,4, 5,1,2, 5,1,2, 6,1,2, 1,2,12,
+    133          0,0,0};
+    134          
+
+   \                                 In  segment CODE_C, align 1
+    135           __code const uchar Birthday[]={
+   \                     Birthday:
+   \   000000   05           DB 5
+   \   000001   01           DB 1
+   \   000002   02           DB 2
+   \   000003   05           DB 5
+   \   000004   01           DB 1
+   \   000005   02           DB 2
+   \   000006   06           DB 6
+   \   000007   01           DB 1
+   \   000008   04           DB 4
+   \   000009   05           DB 5
+   \   00000A   01           DB 1
+   \   00000B   04           DB 4
+   \   00000C   01           DB 1
+   \   00000D   02           DB 2
+   \   00000E   04           DB 4
+   \   00000F   07           DB 7
+   \   000010   01           DB 1
+   \   000011   08           DB 8
+   \   000012   05           DB 5
+   \   000013   01           DB 1
+   \   000014   02           DB 2
+   \   000015   05           DB 5
+   \   000016   01           DB 1
+   \   000017   02           DB 2
+   \   000018   06           DB 6
+   \   000019   01           DB 1
+   \   00001A   04           DB 4
+   \   00001B   05           DB 5
+   \   00001C   01           DB 1
+   \   00001D   04           DB 4
+   \   00001E   02           DB 2
+   \   00001F   02           DB 2
+   \   000020   04           DB 4
+   \   000021   01           DB 1
+   \   000022   02           DB 2
+   \   000023   08           DB 8
+   \   000024   05           DB 5
+   \   000025   01           DB 1
+   \   000026   02           DB 2
+   \   000027   05           DB 5
+   \   000028   01           DB 1
+   \   000029   02           DB 2
+   \   00002A   05           DB 5
+   \   00002B   02           DB 2
+   \   00002C   04           DB 4
+   \   00002D   03           DB 3
+   \   00002E   02           DB 2
+   \   00002F   04           DB 4
+   \   000030   01           DB 1
+   \   000031   02           DB 2
+   \   000032   04           DB 4
+   \   000033   07           DB 7
+   \   000034   01           DB 1
+   \   000035   04           DB 4
+   \   000036   06           DB 6
+   \   000037   01           DB 1
+   \   000038   04           DB 4
+   \   000039   04           DB 4
+   \   00003A   02           DB 2
+   \   00003B   02           DB 2
+   \   00003C   04           DB 4
+   \   00003D   02           DB 2
+   \   00003E   02           DB 2
+   \   00003F   03           DB 3
+   \   000040   02           DB 2
+   \   000041   04           DB 4
+   \   000042   01           DB 1
+   \   000043   02           DB 2
+   \   000044   04           DB 4
+   \   000045   02           DB 2
+   \   000046   02           DB 2
+   \   000047   04           DB 4
+   \   000048   01           DB 1
+   \   000049   02           DB 2
+   \   00004A   04           DB 4
+   \   00004B   00           DB 0
+   \   00004C   00           DB 0
+   \   00004D   00           DB 0
+    136          5,1,2, 5,1,2, 6,1,4, 5,1,4, 1,2,4, 7,1,8,
+    137          5,1,2, 5,1,2, 6,1,4, 5,1,4, 2,2,4, 1,2,8,
+    138          5,1,2, 5,1,2, 5,2,4, 3,2,4, 1,2,4, 7,1,4,
+    139          6,1,4, 4,2,2, 4,2,2, 3,2,4, 1,2,4, 2,2,4,
+    140          1,2,4, 0,0,0};
+    141          
+    142          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    143          void IO_Init(void)
+   \                     IO_Init:
+    144          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+    145            P1DIR |= 0x01;     //P1_0定义为输出
+   \   000000   43FE01       ORL     0xfe,#0x1
+    146            buzzer = 0;
+   \   000003   C290         CLR     0x90.0
+    147          }
+   \   000005   02....       LJMP    ?BRET
+   \   000008                REQUIRE P1DIR
+   \   000008                REQUIRE _A_P1
+    148          
+    149          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    150          void InitT3(void)
+   \                     InitT3:
+    151          {     
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+    152                T3CTL |= 0x08 ;             //开溢出中断     
+   \   000000   43CB08       ORL     0xcb,#0x8
+    153                T3IE = 1;                   //开总中断和T3中断
+   \   000003   D2BB         SETB    0xb8.3
+    154                T3CTL&=~0xE0;               //1分频,Tcy = 256 * (1/16000000)=16us; 其中256是timer3 装满一次是256步
+   \   000005   53CB1F       ANL     0xcb,#0x1f
+    155                T3CTL &= ~0X03;            //自动重装 00－>0xff  
+   \   000008   53CBFC       ANL     0xcb,#0xfc
+    156                EA = 1; 
+   \   00000B   D2AF         SETB    0xa8.7
+    157          }
+   \   00000D   02....       LJMP    ?BRET
+   \   000010                REQUIRE T3CTL
+   \   000010                REQUIRE _A_IEN1
+   \   000010                REQUIRE _A_IEN0
+    158          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    159          void delay2(uchar t) //延时程序，控制发音的时间长度(1/4拍)
+   \                     delay2:
+    160          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+    161          
+    162          
+    163              uchar t1;
+    164              ulong t2;
+    165              for(t1 = 0; t1 < t; t1++)    //双重循环, 共延时t个半拍
+   \   000000   7800         MOV     R0,#0x0
+   \   000002   8001         SJMP    ??delay2_0
+    166                for(t2 = 0; t2 < 8000; t2++); //延时期间
+   \                     ??delay2_1:
+   \   000004   08           INC     R0
+   \                     ??delay2_0:
+   \   000005   E8           MOV     A,R0
+   \   000006   C3           CLR     C
+   \   000007   99           SUBB    A,R1
+   \   000008   40FA         JC      ??delay2_1
+    167              T3CTL &=~0x10;               //关闭timer3, 停止发音
+   \   00000A   53CBEF       ANL     0xcb,#0xef
+    168          }
+   \   00000D   02....       LJMP    ?BRET
+   \   000010                REQUIRE T3CTL
+    169          
+    170          
+    171          //延时函数
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    172          void Delay_us() //1 us延时
+   \                     Delay_us:
+    173          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    174          
+    175              MicroWait(1);
+   \   000004                ; Setup parameters for call to function Onboard_wait
+   \   000004   7A01         MOV     R2,#0x1
+   \   000006                REQUIRE ?Subroutine0
+   \   000006                ; // Fall through to label ?Subroutine0
+    176          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   7B00         MOV     R3,#0x0
+   \   000002   12....       LCALL   ??Onboard_wait?relay
+   \   000005                REQUIRE ??Subroutine3_0
+   \   000005                ; // Fall through to label ??Subroutine3_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine3_0:
+   \   000000   D083         POP     DPH
+   \   000002   D082         POP     DPL
+   \   000004   02....       LJMP    ?BRET
+    177          
+    178          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    179          void Delay_10us() //10 us延时
+   \                     Delay_10us:
+    180          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    181            MicroWait(10);
+   \   000004                ; Setup parameters for call to function Onboard_wait
+   \   000004   7A0A         MOV     R2,#0xa
+   \   000006   80..         SJMP    ?Subroutine0
+    182          }
+    183          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    184          void Delay_ms(uint Time)//n ms延时
+   \                     Delay_ms:
+    185          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV     A,R2
+   \   000006   FE           MOV     R6,A
+   \   000007   EB           MOV     A,R3
+   \   000008   FF           MOV     R7,A
+    186              unsigned char i;
+    187              while(Time--)
+   \                     ??Delay_ms_0:
+   \   000009   EE           MOV     A,R6
+   \   00000A   F8           MOV     R0,A
+   \   00000B   EF           MOV     A,R7
+   \   00000C   F9           MOV     R1,A
+   \   00000D   E8           MOV     A,R0
+   \   00000E   24FF         ADD     A,#-0x1
+   \   000010   1E           DEC     R6
+   \   000011   E9           MOV     A,R1
+   \   000012   34FF         ADDC    A,#-0x1
+   \   000014   FF           MOV     R7,A
+   \   000015   E8           MOV     A,R0
+   \   000016   49           ORL     A,R1
+   \   000017   6012         JZ      ??Delay_ms_1
+    188              {
+    189                  for(i=0;i<100;i++)
+   \   000019   75..64       MOV     ?V0 + 0,#0x64
+    190                      Delay_10us();
+   \                     ??Delay_ms_2:
+   \   00001C                ; Setup parameters for call to function Onboard_wait
+   \   00001C   7A0A         MOV     R2,#0xa
+   \   00001E   7B00         MOV     R3,#0x0
+   \   000020   12....       LCALL   ??Onboard_wait?relay
+   \   000023   15..         DEC     ?V0 + 0
+   \   000025   E5..         MOV     A,?V0 + 0
+   \   000027   60E0         JZ      ??Delay_ms_0
+   \   000029   80F1         SJMP    ??Delay_ms_2
+    191              }
+    192          }
+   \                     ??Delay_ms_1:
+   \   00002B                REQUIRE ?Subroutine1
+   \   00002B                ; // Fall through to label ?Subroutine1
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   7F01         MOV     R7,#0x1
+   \   000002   02....       LJMP    ?BANKED_LEAVE_XDATA
+    193          
+    194          
+    195          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    196          void singachar(void) //演奏一个音符
+   \                     singachar:
+    197          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    198            T3CTL &=~0x10;               //关闭timer3
+   \   000004   53CBEF       ANL     0xcb,#0xef
+    199            count = t3count;             //控制音调
+   \   000007   90....       MOV     DPTR,#t3count
+   \   00000A   E0           MOVX    A,@DPTR
+   \   00000B   90....       MOV     DPTR,#count
+   \   00000E   F0           MOVX    @DPTR,A
+    200            T3CTL |=0X10;             //启动, 由timer3输出方波去发音
+   \   00000F   43CB10       ORL     0xcb,#0x10
+    201            delay2(time);          //控制时间长度即 节拍
+   \   000012                ; Setup parameters for call to function delay2
+   \   000012   90....       MOV     DPTR,#time
+   \   000015   E0           MOVX    A,@DPTR
+   \   000016   F9           MOV     R1,A
+   \   000017   12....       LCALL   ??delay2?relay
+    202          }
+   \   00001A   80..         SJMP    ??Subroutine3_0
+   \   00001C                REQUIRE T3CTL
+    203          
+    204          
+    205          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    206          void song(uchar const __code *str)
+   \                     song:
+    207          {
+   \   000000   74F5         MOV     A,#-0xb
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 11
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV     A,R2
+   \   000006   FE           MOV     R6,A
+   \   000007   EB           MOV     A,R3
+   \   000008   FF           MOV     R7,A
+    208            uchar k,i;
+    209            i = 0;
+   \   000009   75..00       MOV     ?V0 + 2,#0x0
+    210            time = 1;
+   \   00000C   90....       MOV     DPTR,#time
+   \   00000F   7401         MOV     A,#0x1
+   \   000011   F0           MOVX    @DPTR,A
+    211            while(time)
+    212            {
+    213              k = str[i] + 7 * (str[i + 1]);//第i个是音符, 第i+1个是第几个八度
+    214                                  //从数据表中读出频率数值
+    215              t3count = FREQL[k]; //实际上, 是定时的时间长度
+   \                     ??song_0:
+   \   000012   85....       MOV     ?V0 + 0,?V0 + 2
+   \   000015   EE           MOV     A,R6
+   \   000016   25..         ADD     A,?V0 + 0
+   \   000018   F8           MOV     R0,A
+   \   000019   EF           MOV     A,R7
+   \   00001A   3400         ADDC    A,#0x0
+   \   00001C   F9           MOV     R1,A
+   \   00001D   75F007       MOV     B,#0x7
+   \   000020   8882         MOV     DPL,R0
+   \   000022   8983         MOV     DPH,R1
+   \   000024   A3           INC     DPTR
+   \   000025   E4           CLR     A
+   \   000026   93           MOVC    A,@A+DPTR
+   \   000027   A4           MUL     AB
+   \   000028   FA           MOV     R2,A
+   \   000029   8882         MOV     DPL,R0
+   \   00002B   8983         MOV     DPH,R1
+   \   00002D   E4           CLR     A
+   \   00002E   93           MOVC    A,@A+DPTR
+   \   00002F   2A           ADD     A,R2
+   \   000030   FA           MOV     R2,A
+   \   000031   74..         MOV     A,#FREQL & 0xff
+   \   000033   2A           ADD     A,R2
+   \   000034   F582         MOV     DPL,A
+   \   000036   74..         MOV     A,#(FREQL >> 8) & 0xff
+   \   000038   3400         ADDC    A,#0x0
+   \   00003A   F583         MOV     DPH,A
+   \   00003C   E4           CLR     A
+   \   00003D   93           MOVC    A,@A+DPTR
+   \   00003E   90....       MOV     DPTR,#t3count
+   \   000041   F0           MOVX    @DPTR,A
+    216              time = str[i + 2]; //读出时间长度数值 节拍时间
+   \   000042   8882         MOV     DPL,R0
+   \   000044   8983         MOV     DPH,R1
+   \   000046   A3           INC     DPTR
+   \   000047   A3           INC     DPTR
+   \   000048   E4           CLR     A
+   \   000049   93           MOVC    A,@A+DPTR
+   \   00004A   90....       MOV     DPTR,#time
+   \   00004D   F0           MOVX    @DPTR,A
+    217              i += 3;
+   \   00004E   05..         INC     ?V0 + 2
+   \   000050   05..         INC     ?V0 + 2
+   \   000052   05..         INC     ?V0 + 2
+    218              singachar();
+   \   000054                ; Setup parameters for call to function singachar
+   \   000054   12....       LCALL   ??singachar?relay
+    219            }
+   \   000057   90....       MOV     DPTR,#time
+   \   00005A   E0           MOVX    A,@DPTR
+   \   00005B   70B5         JNZ     ??song_0
+    220          }
+   \   00005D   7F03         MOV     R7,#0x3
+   \   00005F   02....       LJMP    ?BANKED_LEAVE_XDATA
+    221          
+    222          
+    223          
+    224          
+    225          
+    226          
+    227          
+    228          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    229          void GenericApp_Init( uint8 task_id )
+   \                     GenericApp_Init:
+    230          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 29
+   \   000005   74E3         MOV     A,#-0x1d
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   E9           MOV     A,R1
+    231             halUARTCfg_t uartConfig;
+    232            GenericApp_TaskID = task_id;
+   \   00000B   90....       MOV     DPTR,#GenericApp_TaskID
+   \   00000E   F0           MOVX    @DPTR,A
+    233            GenericApp_NwkState=DEV_INIT;
+   \   00000F   90....       MOV     DPTR,#GenericApp_NwkState
+   \   000012   7401         MOV     A,#0x1
+   \   000014   F0           MOVX    @DPTR,A
+    234            GenericApp_TransID = 0;
+   \   000015   90....       MOV     DPTR,#GenericApp_TransID
+   \   000018   E4           CLR     A
+   \   000019   F0           MOVX    @DPTR,A
+    235           
+    236            // Fill out the endpoint description.
+    237            GenericApp_epDesc.endPoint = GENERICAPP_ENDPOINT;
+   \   00001A   90....       MOV     DPTR,#GenericApp_epDesc
+   \   00001D   740A         MOV     A,#0xa
+   \   00001F   F0           MOVX    @DPTR,A
+    238            GenericApp_epDesc.task_id = &GenericApp_TaskID;
+   \   000020   A3           INC     DPTR
+   \   000021   74..         MOV     A,#GenericApp_TaskID & 0xff
+   \   000023   F0           MOVX    @DPTR,A
+   \   000024   A3           INC     DPTR
+   \   000025   74..         MOV     A,#(GenericApp_TaskID >> 8) & 0xff
+   \   000027   F0           MOVX    @DPTR,A
+    239            GenericApp_epDesc.simpleDesc
+    240                      = (SimpleDescriptionFormat_t *)&GenericApp_SimpleDesc;
+   \   000028   A3           INC     DPTR
+   \   000029   74..         MOV     A,#GenericApp_SimpleDesc & 0xff
+   \   00002B   F0           MOVX    @DPTR,A
+   \   00002C   A3           INC     DPTR
+   \   00002D   74..         MOV     A,#(GenericApp_SimpleDesc >> 8) & 0xff
+   \   00002F   F0           MOVX    @DPTR,A
+    241            GenericApp_epDesc.latencyReq = noLatencyReqs;
+   \   000030   A3           INC     DPTR
+   \   000031   E4           CLR     A
+   \   000032   F0           MOVX    @DPTR,A
+    242            afRegister( &GenericApp_epDesc );
+   \   000033                ; Setup parameters for call to function afRegister
+   \   000033   7A..         MOV     R2,#GenericApp_epDesc & 0xff
+   \   000035   7B..         MOV     R3,#(GenericApp_epDesc >> 8) & 0xff
+   \   000037   12....       LCALL   ??afRegister?relay
+    243            
+    244            uartConfig.configured=TRUE;
+   \   00003A   85..82       MOV     DPL,?XSP + 0
+   \   00003D   85..83       MOV     DPH,?XSP + 1
+   \   000040   7401         MOV     A,#0x1
+   \   000042   F0           MOVX    @DPTR,A
+    245            uartConfig.baudRate=HAL_UART_BR_9600;
+   \   000043   12....       LCALL   ?XSTACK_DISP0_8
+   \   000046   E4           CLR     A
+   \   000047   F0           MOVX    @DPTR,A
+    246            uartConfig.flowControl=FALSE;
+   \   000048   7402         MOV     A,#0x2
+   \   00004A   12....       LCALL   ?XSTACK_DISP0_8
+   \   00004D   E4           CLR     A
+   \   00004E   F0           MOVX    @DPTR,A
+    247            uartConfig.callBackFunc=NULL;
+   \   00004F   741B         MOV     A,#0x1b
+   \   000051   12....       LCALL   ?XSTACK_DISP0_8
+   \   000054   E4           CLR     A
+   \   000055   F0           MOVX    @DPTR,A
+   \   000056   A3           INC     DPTR
+   \   000057   F0           MOVX    @DPTR,A
+    248            HalUARTOpen (0,&uartConfig);
+   \   000058                ; Setup parameters for call to function HalUARTOpen
+   \   000058   85..82       MOV     DPL,?XSP + 0
+   \   00005B   85..83       MOV     DPH,?XSP + 1
+   \   00005E   AA82         MOV     R2,DPL
+   \   000060   AB83         MOV     R3,DPH
+   \   000062   F9           MOV     R1,A
+   \   000063   12....       LCALL   ??HalUARTOpen?relay
+    249            
+    250          }
+   \   000066   741D         MOV     A,#0x1d
+   \   000068   12....       LCALL   ?DEALLOC_XSTACK8
+   \   00006B   02....       LJMP    ?Subroutine1 & 0xFFFF
+    251          
+    252          
+    253          /*static void rxCB(uint8 port,uint8 event)
+    254          {  //HalLedBlink(HAL_LED_2,0,50,500);
+    255            HalUARTRead(0,uartbuf,9);
+    256           
+    257            GenericApp_SendTheMessage();
+    258            //HalLedBlink(HAL_LED_2,0,50,500);
+    259          }*/
+    260          
+    261          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    262          uint16 GenericApp_ProcessEvent( uint8 task_id, uint16 events )
+   \                     GenericApp_ProcessEvent:
+    263          {
+   \   000000   74F4         MOV     A,#-0xc
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 0
+   \   000005   8A..         MOV     ?V0 + 0,R2
+   \   000007   8B..         MOV     ?V0 + 1,R3
+    264           afIncomingMSGPacket_t *MSGpkt;
+    265           
+    266            if ( events & SYS_EVENT_MSG )
+   \   000009   EB           MOV     A,R3
+   \   00000A   5480         ANL     A,#0x80
+   \   00000C   6044         JZ      ??GenericApp_ProcessEvent_0
+    267            {
+    268              MSGpkt = (afIncomingMSGPacket_t *)osal_msg_receive( GenericApp_TaskID );
+   \   00000E                ; Setup parameters for call to function osal_msg_receive
+   \   00000E   800D         SJMP    ??GenericApp_ProcessEvent_1
+    269             
+    270              while ( MSGpkt )
+    271              {
+    272                switch ( MSGpkt->hdr.event )
+    273                {
+    274                
+    275                case AF_INCOMING_MSG_CMD:
+    276                     GenericApp_MessageMSGCB(MSGpkt);
+    277                     break;
+    278                 case ZDO_STATE_CHANGE:
+    279                    GenericApp_NwkState = (devStates_t)(MSGpkt->hdr.status);
+   \                     ??GenericApp_ProcessEvent_2:
+   \   000010   A3           INC     DPTR
+   \   000011   E0           MOVX    A,@DPTR
+   \   000012   90....       MOV     DPTR,#GenericApp_NwkState
+   \   000015   F0           MOVX    @DPTR,A
+    280                    if ( GenericApp_NwkState == DEV_END_DEVICE||
+    281                        GenericApp_NwkState == DEV_ROUTER||
+    282                          GenericApp_NwkState == DEV_ZB_COORD)
+    283                       
+    284                    {  
+    285                      
+    286                      //osal_set_event(GenericApp_TaskID,SEND_DATA_EVENT);
+    287                      
+    288                      
+    289                      //GenericApp_SendTheMessage();
+    290                      
+    291                    }
+    292                    break;
+    293                  default:
+    294                    break;
+    295                  
+    296                }
+    297                // Release the memory
+    298                osal_msg_deallocate( (uint8 *)MSGpkt );
+   \                     ??GenericApp_ProcessEvent_3:
+   \   000016                ; Setup parameters for call to function osal_msg_deallocate
+   \   000016   EE           MOV     A,R6
+   \   000017   FA           MOV     R2,A
+   \   000018   EF           MOV     A,R7
+   \   000019   FB           MOV     R3,A
+   \   00001A   12....       LCALL   ??osal_msg_deallocate?relay
+    299                // Next
+    300                MSGpkt = (afIncomingMSGPacket_t *)osal_msg_receive( GenericApp_TaskID );
+   \   00001D                ; Setup parameters for call to function osal_msg_receive
+   \                     ??GenericApp_ProcessEvent_1:
+   \   00001D   90....       MOV     DPTR,#GenericApp_TaskID
+   \   000020   E0           MOVX    A,@DPTR
+   \   000021   F9           MOV     R1,A
+   \   000022   12....       LCALL   ??osal_msg_receive?relay
+   \   000025   8A..         MOV     ?V0 + 2,R2
+   \   000027   8B..         MOV     ?V0 + 3,R3
+   \   000029   AE..         MOV     R6,?V0 + 2
+   \   00002B   AF..         MOV     R7,?V0 + 3
+   \   00002D   EE           MOV     A,R6
+   \   00002E   4F           ORL     A,R7
+   \   00002F   6018         JZ      ??GenericApp_ProcessEvent_4
+   \   000031   8E82         MOV     DPL,R6
+   \   000033   8F83         MOV     DPH,R7
+   \   000035   E0           MOVX    A,@DPTR
+   \   000036   24E6         ADD     A,#-0x1a
+   \   000038   6006         JZ      ??GenericApp_ProcessEvent_5
+   \   00003A   2449         ADD     A,#0x49
+   \   00003C   60D2         JZ      ??GenericApp_ProcessEvent_2
+   \   00003E   80D6         SJMP    ??GenericApp_ProcessEvent_3
+   \                     ??GenericApp_ProcessEvent_5:
+   \   000040                ; Setup parameters for call to function GenericApp_MessageMSGCB
+   \   000040   EE           MOV     A,R6
+   \   000041   FA           MOV     R2,A
+   \   000042   EF           MOV     A,R7
+   \   000043   FB           MOV     R3,A
+   \   000044   12....       LCALL   ??GenericApp_MessageMSGCB?relay
+   \   000047   80CD         SJMP    ??GenericApp_ProcessEvent_3
+    301              }
+    302              // return unprocessed events
+    303              return (events ^ SYS_EVENT_MSG);
+   \                     ??GenericApp_ProcessEvent_4:
+   \   000049   AA..         MOV     R2,?V0 + 0
+   \   00004B   E5..         MOV     A,?V0 + 1
+   \   00004D   6480         XRL     A,#0x80
+   \   00004F   FB           MOV     R3,A
+   \   000050   8004         SJMP    ??GenericApp_ProcessEvent_6
+    304            }
+    305           /* if(events &SEND_DATA_EVENT )
+    306            {
+    307              GenericApp_SendTheMessage();
+    308               osal_start_timerEx(GenericApp_TaskID,SEND_DATA_EVENT,3000);
+    309              return (events ^ SEND_DATA_EVENT);
+    310            }*/
+    311           
+    312           return 0;
+   \                     ??GenericApp_ProcessEvent_0:
+   \   000052   7A00         MOV     R2,#0x0
+   \   000054   7B00         MOV     R3,#0x0
+   \                     ??GenericApp_ProcessEvent_6:
+   \   000056   7F04         MOV     R7,#0x4
+   \   000058   02....       LJMP    ?BANKED_LEAVE_XDATA
+    313           
+    314            
+    315            /* afIncomingMSGPacket_t *MSGpkt;    //设置一个指针
+    316            if ( events & SYS_EVENT_MSG )           //events 已经发生的事件    SYS_EVENT_MSG 系统事件
+    317            {
+    318              MSGpkt = (afIncomingMSGPacket_t *)osal_msg_receive( GenericApp_TaskID );   //取事件
+    319              while ( MSGpkt )
+    320              {
+    321                switch ( MSGpkt->hdr.event )
+    322                {
+    323                 
+    324                  // Received when a messages is received (OTA) for this endpoint
+    325                  case AF_INCOMING_MSG_CMD:
+    326                    GenericApp_MessageMSGCB( MSGpkt );
+    327                    break;
+    328            
+    329                  default:
+    330                    break;
+    331                }
+    332             osal_msg_deallocate( (uint8 *)MSGpkt );
+    333                // Next - if one is available
+    334                MSGpkt = (afIncomingMSGPacket_t *)osal_msg_receive( GenericApp_TaskID );
+    335              }
+    336              // return unprocessed events
+    337              return (events ^ SYS_EVENT_MSG);
+    338            }
+    339           return 0;
+    340           
+    341           */
+    342          }
+    343           
+    344           /*void GenericApp_SendTheMessage( void )
+    345          {
+    346          
+    347            // HalLedBlink(HAL_LED_2,0,50,500);
+    348           DHT11();
+    349           //Delay_ms(500);
+    350           wen[0]=wendu_shi+0x30;
+    351           wen[1]=wendu_ge+0x30;
+    352           //char aaa[3]="aa";
+    353          
+    354           wen[2]=':';
+    355           wen[3]=shidu_shi+0x30;
+    356           wen[4]=shidu_ge+0x30;
+    357           
+    358           afAddrType_t my_DstAddr;
+    359           my_DstAddr.addrMode=(afAddrMode_t)Addr16Bit;
+    360           my_DstAddr.endPoint=GENERICAPP_ENDPOINT;
+    361           my_DstAddr.addr.shortAddr=0x0000;
+    362           
+    363           AF_DataRequest( &my_DstAddr, &GenericApp_epDesc,
+    364                                 GENERICAPP_CLUSTERID,
+    365                                 5,
+    366                                 wen,
+    367                                 &GenericApp_TransID,
+    368                                 AF_DISCV_ROUTE, AF_DEFAULT_RADIUS);
+    369           
+    370               HalLedBlink(HAL_LED_2,0,50,500);
+    371               // Delay_ms(1000);
+    372          }
+    373           
+    374          */
+    375          
+
+   \                                 In  segment NEAR_CODE, align 1, keep-with-next
+    376          __interrupt void T3_ISR(void)  //timer3中断处理
+   \                     T3_ISR:
+    377           { 
+   \   000000   C0E0         PUSH    A
+   \   000002   C0D0         PUSH    PSW
+   \   000004   C082         PUSH    DPL
+   \   000006   C083         PUSH    DPH
+   \   000008   C0F0         PUSH    B
+   \   00000A                ; Saved register size: 5
+   \   00000A                ; Auto size: 0
+    378                  IRCON = 0x00;                  //清中断标志, 也可由硬件自动完成 
+   \   00000A   75C000       MOV     0xc0,#0x0
+    379                  if(--count == 0)                
+   \   00000D   90....       MOV     DPTR,#count
+   \   000010   E0           MOVX    A,@DPTR
+   \   000011   14           DEC     A
+   \   000012   F0           MOVX    @DPTR,A
+   \   000013   7018         JNZ     ??T3_ISR_0
+    380                  {         
+    381                   T3CTL &=~0X10;             //关闭timer3
+   \   000015   53CBEF       ANL     0xcb,#0xef
+    382                   buzzer = ~buzzer;          //输出方波, 发音
+   \   000018   D2F0         SETB    B.0
+   \   00001A   A290         MOV     C,0x90.0
+   \   00001C   30F001       JNB     B.0,??T3_ISR_1
+   \   00001F   B3           CPL     C
+   \                     ??T3_ISR_1:
+   \   000020   9290         MOV     0x90.0,C
+    383                   T3CTL |=0X10;             //启动
+   \   000022   43CB10       ORL     0xcb,#0x10
+    384                   count = t3count;          //下次的中断时间, 这个时间, 控制音调高低
+   \   000025   90....       MOV     DPTR,#t3count
+   \   000028   E0           MOVX    A,@DPTR
+   \   000029   90....       MOV     DPTR,#count
+   \   00002C   F0           MOVX    @DPTR,A
+    385                  } 
+    386                  
+    387           }
+   \                     ??T3_ISR_0:
+   \   00002D   D0F0         POP     B
+   \   00002F   D083         POP     DPH
+   \   000031   D082         POP     DPL
+   \   000033   D0D0         POP     PSW
+   \   000035   D0E0         POP     A
+   \   000037   32           RETI
+   \   000038                REQUIRE _A_IRCON
+   \   000038                REQUIRE T3CTL
+   \   000038                REQUIRE _A_P1
+    388          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    389          void GenericApp_MessageMSGCB(afIncomingMSGPacket_t *pkt)
+   \                     GenericApp_MessageMSGCB:
+    390          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV     A,R2
+   \   000006   FE           MOV     R6,A
+   \   000007   EB           MOV     A,R3
+   \   000008   FF           MOV     R7,A
+    391            
+    392           
+    393             HalLedBlink(HAL_LED_2,0,50,500);
+   \   000009                ; Setup parameters for call to function HalLedBlink
+   \   000009   7CF4         MOV     R4,#-0xc
+   \   00000B   7D01         MOV     R5,#0x1
+   \   00000D   7B32         MOV     R3,#0x32
+   \   00000F   7A00         MOV     R2,#0x0
+   \   000011   7902         MOV     R1,#0x2
+   \   000013   12....       LCALL   ??HalLedBlink?relay
+    394           unsigned char buffer[9];
+                                ^
+Warning[Pe177]: variable "buffer" was declared but never referenced
+
+  __interrupt void T3_ISR(void)  //timer3中断处理
+                   ^
+"C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\GenericApp\Source\fengming.c",376  Warning[Ta009]: 
+          No vector specified
+    395           switch(pkt->clusterId)
+   \   000016   8E82         MOV     DPL,R6
+   \   000018   8F83         MOV     DPH,R7
+   \   00001A   A3           INC     DPTR
+   \   00001B   A3           INC     DPTR
+   \   00001C   A3           INC     DPTR
+   \   00001D   A3           INC     DPTR
+   \   00001E   E0           MOVX    A,@DPTR
+   \   00001F   6401         XRL     A,#0x1
+   \   000021   7002         JNZ     ??GenericApp_MessageMSGCB_0
+   \   000023   A3           INC     DPTR
+   \   000024   E0           MOVX    A,@DPTR
+   \                     ??GenericApp_MessageMSGCB_0:
+   \   000025   7024         JNZ     ??GenericApp_MessageMSGCB_1
+    396           {
+    397           case GENERICAPP_CLUSTERID:
+    398             
+    399            
+    400             IO_Init();
+   \   000027                ; Setup parameters for call to function IO_Init
+   \   000027   12....       LCALL   ??IO_Init?relay
+    401             InitT3();
+   \   00002A                ; Setup parameters for call to function InitT3
+   \   00002A   12....       LCALL   ??InitT3?relay
+    402              while(1)
+    403            {
+    404              song(TwoMouse);
+   \                     ??GenericApp_MessageMSGCB_2:
+   \   00002D                ; Setup parameters for call to function song
+   \   00002D   7A..         MOV     R2,#TwoMouse & 0xff
+   \   00002F   7B..         MOV     R3,#(TwoMouse >> 8) & 0xff
+   \   000031   12....       LCALL   ?Subroutine2 & 0xFFFF
+    405              delay2(20);
+    406              song(sszymmh);
+   \                     ??CrossCallReturnLabel_0:
+   \   000034                ; Setup parameters for call to function song
+   \   000034   7A..         MOV     R2,#sszymmh & 0xff
+   \   000036   7B..         MOV     R3,#(sszymmh >> 8) & 0xff
+   \   000038   12....       LCALL   ?Subroutine2 & 0xFFFF
+    407              delay2(20);
+    408              song(TwoButterfly);
+   \                     ??CrossCallReturnLabel_1:
+   \   00003B                ; Setup parameters for call to function song
+   \   00003B   7A..         MOV     R2,#TwoButterfly & 0xff
+   \   00003D   7B..         MOV     R3,#(TwoButterfly >> 8) & 0xff
+   \   00003F   12....       LCALL   ?Subroutine2 & 0xFFFF
+    409              delay2(20);
+    410              song(Birthday);
+   \                     ??CrossCallReturnLabel_2:
+   \   000042                ; Setup parameters for call to function song
+   \   000042   7A..         MOV     R2,#Birthday & 0xff
+   \   000044   7B..         MOV     R3,#(Birthday >> 8) & 0xff
+   \   000046   12....       LCALL   ?Subroutine2 & 0xFFFF
+    411              delay2(20);
+    412            }
+    413             break;
+    414           }
+   \                     ??CrossCallReturnLabel_3:
+   \   000049   80E2         SJMP    ??GenericApp_MessageMSGCB_2
+    415          }
+   \                     ??GenericApp_MessageMSGCB_1:
+   \   00004B   02....       LJMP    ?Subroutine1 & 0xFFFF
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine2:
+   \   000000   12....       LCALL   ??song?relay
+   \   000003                ; Setup parameters for call to function delay2
+   \   000003                ; Setup parameters for call to function delay2
+   \   000003                ; Setup parameters for call to function delay2
+   \   000003                ; Setup parameters for call to function delay2
+   \   000003   7914         MOV     R1,#0x14
+   \   000005   12....       LCALL   ??delay2?relay
+   \   000008   22           RET
+
+   \                                 In  segment XDATA_ID, align 1, keep-with-next
+   \                     `?<Initializer for theMessageData>`:
+   \   000000   4C454400     DB "LED"
+
+   \                                 In  segment XDATA_ID, align 1, keep-with-next
+   \                     `?<Initializer for wendu_ge>`:
+   \   000000   04           DB 4
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??IO_Init?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    IO_Init
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??InitT3?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    InitT3
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??delay2?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    delay2
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??Delay_us?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    Delay_us
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??Delay_10us?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    Delay_10us
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??Delay_ms?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    Delay_ms
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??singachar?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    singachar
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??song?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    song
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GenericApp_Init?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GenericApp_Init
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GenericApp_ProcessEvent?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GenericApp_ProcessEvent
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GenericApp_MessageMSGCB?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GenericApp_MessageMSGCB
+    416          
+
+   Maximum stack usage in bytes:
+
+     Function                     ISTACK PSTACK XSTACK
+     --------                     ------ ------ ------
+     Delay_10us                       2      0      0
+       -> Onboard_wait                4      0      0
+     Delay_ms                         0      0      9
+       -> Onboard_wait                0      0     18
+     Delay_us                         2      0      0
+       -> Onboard_wait                4      0      0
+     GenericApp_Init                  0      0     38
+       -> afRegister                  0      0     76
+       -> HalUARTOpen                 0      0     76
+     GenericApp_MessageMSGCB          0      0     21
+       -> HalLedBlink                 0      0     18
+       -> IO_Init                     0      0     18
+       -> InitT3                      0      0     18
+       -> song                        0      0     18
+       -> delay2                      0      0     18
+       -> song                        0      0     18
+       -> delay2                      0      0     18
+       -> song                        0      0     18
+       -> delay2                      0      0     18
+       -> song                        0      0     18
+       -> delay2                      0      0     18
+     GenericApp_ProcessEvent          0      0     12
+       -> osal_msg_receive            0      0     24
+       -> osal_msg_deallocate         0      0     24
+       -> osal_msg_receive            0      0     24
+       -> GenericApp_MessageMSGCB     0      0     24
+     IO_Init                          0      0      9
+     InitT3                           0      0      9
+     T3_ISR                           5      0      0
+     delay2                           0      0      9
+     singachar                        2      0     11
+       -> delay2                      4      0      0
+     song                             0      0     20
+       -> singachar                   0      0     22
+
+
+   Segment part sizes:
+
+     Function/Label                    Bytes
+     --------------                    -----
+     _A_P1                                1
+     _A_IEN0                              1
+     _A_IEN1                              1
+     _A_IRCON                             1
+     T3CTL                                1
+     P1DIR                                1
+     GenericApp_ClusterList               2
+     GenericApp_SimpleDesc               12
+     GenericApp_epDesc                    6
+     GenericApp_TaskID                    1
+     GenericApp_TransID                   1
+     GenericApp_NwkState                  1
+     uartbuf                             20
+     theMessageData                       4
+     ucharFLAG                            1
+     uchartemp                            1
+     shidu_shi                            1
+     shidu_ge                             1
+     wendu_shi                            1
+     wendu_ge                             1
+     ucharT_data_H                        1
+     ucharT_data_L                        1
+     ucharRH_data_H                       1
+     ucharRH_data_L                       1
+     ucharcheckdata                       1
+     ucharT_data_H_temp                   1
+     ucharT_data_L_temp                   1
+     ucharRH_data_H_temp                  1
+     ucharRH_data_L_temp                  1
+     ucharcheckdata_temp                  1
+     ucharcomdata                         1
+     time                                 1
+     count                                1
+     t3count                              1
+     FREQL                               29
+     sszymmh                            102
+     TwoMouse                            99
+     TwoButterfly                       387
+     Birthday                            78
+     IO_Init                              8
+     InitT3                              16
+     delay2                              16
+     Delay_us                             6
+     ?Subroutine0                         5
+     ??Subroutine3_0                      7
+     Delay_10us                           8
+     Delay_ms                            43
+     ?Subroutine1                         5
+     singachar                           28
+     song                                98
+     GenericApp_Init                    110
+     GenericApp_ProcessEvent             91
+     T3_ISR                              56
+     GenericApp_MessageMSGCB             78
+     ?Subroutine2                         9
+     ?<Initializer for theMessageData>    4
+     ?<Initializer for wendu_ge>          1
+     ??IO_Init?relay                      6
+     ??InitT3?relay                       6
+     ??delay2?relay                       6
+     ??Delay_us?relay                     6
+     ??Delay_10us?relay                   6
+     ??Delay_ms?relay                     6
+     ??singachar?relay                    6
+     ??song?relay                         6
+     ??GenericApp_Init?relay              6
+     ??GenericApp_ProcessEvent?relay      6
+     ??GenericApp_MessageMSGCB?relay      6
+
+ 
+ 528 bytes in segment BANKED_CODE
+  66 bytes in segment BANK_RELAYS
+ 695 bytes in segment CODE_C
+  56 bytes in segment NEAR_CODE
+   6 bytes in segment SFR_AN
+   5 bytes in segment XDATA_I
+   5 bytes in segment XDATA_ID
+  14 bytes in segment XDATA_ROM_C
+  48 bytes in segment XDATA_Z
+ 
+ 1 350 bytes of CODE  memory
+    14 bytes of CONST memory
+     0 bytes of DATA  memory (+ 6 bytes shared)
+    53 bytes of XDATA memory
+
+Errors: none
+Warnings: 3

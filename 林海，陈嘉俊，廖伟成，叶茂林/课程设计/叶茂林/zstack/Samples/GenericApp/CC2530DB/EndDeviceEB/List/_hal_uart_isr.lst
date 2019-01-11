@@ -1,0 +1,684 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V8.10.1.10194/W32 for 8051         13/Mar/2018  19:43:00 #
+# Copyright 2004-2011 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projects #
+#                          \zstack\Utilities\BootLoad\CC2530\source\_hal_uart #
+#                          _isr.c                                             #
+#    Command line       =  -f "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Proj #
+#                          ects\zstack\Samples\GenericApp\CC2530DB\..\..\..\T #
+#                          ools\CC2530DB\f8wEndev.cfg" (-DCPU32MHZ            #
+#                          -DROOT=__near_func -DMAC_CFG_TX_DATA_MAX=3         #
+#                          -DMAC_CFG_TX_MAX=6 -DMAC_CFG_RX_MAX=3) -f          #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Project #
+#                          s\zstack\Samples\GenericApp\CC2530DB\..\..\..\Tool #
+#                          s\CC2530DB\f8wConfig.cfg" (-DZIGBEEPRO -DSECURE=0  #
+#                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                  #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DLINK_STATUS_JITTER_MASK=0x007F                   #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116                           #
+#                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const     #
+#                          __code" -DGENERIC=__generic                        #
+#                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000        #
+#                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)   #
+#                          -DREJOIN_POLL_RATE=440 "C:\Texas                   #
+#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\U #
+#                          tilities\BootLoad\CC2530\source\_hal_uart_isr.c"   #
+#                          -D NWK_AUTO_POLL -D ZTOOL_P1 -D MT_TASK -D         #
+#                          MT_SYS_FUNC -D MT_ZDO_FUNC -D LCD_SUPPORTED=DEBUG  #
+#                          -D xPOWER_SAVING -D HAL_UART=TRUE -lC "C:\Texas    #
+#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
+#                          amples\GenericApp\CC2530DB\EndDeviceEB\List\" -lA  #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Project #
+#                          s\zstack\Samples\GenericApp\CC2530DB\EndDeviceEB\L #
+#                          ist\" --diag_suppress Pe001,Pa010 -o "C:\Texas     #
+#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
+#                          amples\GenericApp\CC2530DB\EndDeviceEB\Obj\" -e    #
+#                          --no_code_motion --debug --core=plain --dptr=16,1  #
+#                          --data_model=large --code_model=banked             #
+#                          --calling_convention=xdata_reentrant               #
+#                          --place_constants=data_rom --nr_virtual_regs 16    #
+#                          -I "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Proj #
+#                          ects\zstack\Samples\GenericApp\CC2530DB\" -I       #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Project #
+#                          s\zstack\Samples\GenericApp\CC2530DB\..\Source\"   #
+#                          -I "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Proj #
+#                          ects\zstack\Samples\GenericApp\CC2530DB\..\..\..\Z #
+#                          Main\TI2530DB\" -I "C:\Texas                       #
+#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
+#                          amples\GenericApp\CC2530DB\..\..\..\..\..\Componen #
+#                          ts\hal\include\" -I "C:\Texas                      #
+#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
+#                          amples\GenericApp\CC2530DB\..\..\..\..\..\Componen #
+#                          ts\hal\target\CC2530EB\" -I "C:\Texas              #
+#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
+#                          amples\GenericApp\CC2530DB\..\..\..\..\..\Componen #
+#                          ts\mac\include\" -I "C:\Texas                      #
+#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
+#                          amples\GenericApp\CC2530DB\..\..\..\..\..\Componen #
+#                          ts\mac\high_level\" -I "C:\Texas                   #
+#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
+#                          amples\GenericApp\CC2530DB\..\..\..\..\..\Componen #
+#                          ts\mac\low_level\srf04\" -I "C:\Texas              #
+#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
+#                          amples\GenericApp\CC2530DB\..\..\..\..\..\Componen #
+#                          ts\mac\low_level\srf04\single_chip\" -I "C:\Texas  #
+#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
+#                          amples\GenericApp\CC2530DB\..\..\..\..\..\Componen #
+#                          ts\mt\" -I "C:\Texas Instruments\ZStack-CC2530-2.5 #
+#                          .1a\Projects\zstack\Samples\GenericApp\CC2530DB\.. #
+#                          \..\..\..\..\Components\osal\include\" -I          #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Project #
+#                          s\zstack\Samples\GenericApp\CC2530DB\..\..\..\..\. #
+#                          .\Components\services\saddr\" -I "C:\Texas         #
+#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
+#                          amples\GenericApp\CC2530DB\..\..\..\..\..\Componen #
+#                          ts\services\sdata\" -I "C:\Texas                   #
+#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
+#                          amples\GenericApp\CC2530DB\..\..\..\..\..\Componen #
+#                          ts\stack\af\" -I "C:\Texas                         #
+#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
+#                          amples\GenericApp\CC2530DB\..\..\..\..\..\Componen #
+#                          ts\stack\nwk\" -I "C:\Texas                        #
+#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
+#                          amples\GenericApp\CC2530DB\..\..\..\..\..\Componen #
+#                          ts\stack\sapi\" -I "C:\Texas                       #
+#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
+#                          amples\GenericApp\CC2530DB\..\..\..\..\..\Componen #
+#                          ts\stack\sec\" -I "C:\Texas                        #
+#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
+#                          amples\GenericApp\CC2530DB\..\..\..\..\..\Componen #
+#                          ts\stack\sys\" -I "C:\Texas                        #
+#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
+#                          amples\GenericApp\CC2530DB\..\..\..\..\..\Componen #
+#                          ts\stack\zdo\" -I "C:\Texas                        #
+#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
+#                          amples\GenericApp\CC2530DB\..\..\..\..\..\Componen #
+#                          ts\zmac\" -I "C:\Texas Instruments\ZStack-CC2530-2 #
+#                          .5.1a\Projects\zstack\Samples\GenericApp\CC2530DB\ #
+#                          ..\..\..\..\..\Components\zmac\f8w\" -Ohz          #
+#                          --require_prototypes                               #
+#    List file          =  C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projects #
+#                          \zstack\Samples\GenericApp\CC2530DB\EndDeviceEB\Li #
+#                          st\_hal_uart_isr.lst                               #
+#    Object file        =  C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projects #
+#                          \zstack\Samples\GenericApp\CC2530DB\EndDeviceEB\Ob #
+#                          j\_hal_uart_isr.r51                                #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\Utilities\BootLoad\CC2530\source\_hal_uart_isr.c
+      1          /**************************************************************************************************
+      2            Filename:       hal_uart_isr.c
+      3            Revised:        $Date: 2012-04-03 13:22:08 -0700 (Tue, 03 Apr 2012) $
+      4            Revision:       $Revision: 30009 $
+      5          
+      6            Description: This file contains the interface to the H/W UART driver by polled-ISR for the SBL.
+      7          
+      8          
+      9            Copyright 2006-2012 Texas Instruments Incorporated. All rights reserved.
+     10          
+     11            IMPORTANT: Your use of this Software is limited to those specific rights
+     12            granted under the terms of a software license agreement between the user
+     13            who downloaded the software, his/her employer (which must be your employer)
+     14            and Texas Instruments Incorporated (the "License").  You may not use this
+     15            Software unless you agree to abide by the terms of the License. The License
+     16            limits your use, and you acknowledge, that the Software may not be modified,
+     17            copied or distributed unless embedded on a Texas Instruments microcontroller
+     18            or used solely and exclusively in conjunction with a Texas Instruments radio
+     19            frequency transceiver, which is integrated into your product.  Other than for
+     20            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     21            works of, modify, distribute, perform, display or sell this Software and/or
+     22            its documentation for any purpose.
+     23          
+     24            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     25            PROVIDED “AS IS?WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+     26            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+     27            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     28            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     29            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     30            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     31            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     32            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     33            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     34            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     35          
+     36            Should you have any questions regarding your right to use this Software,
+     37            contact Texas Instruments Incorporated at www.TI.com.
+     38          **************************************************************************************************/
+     39          
+     40          /*********************************************************************
+     41           * INCLUDES
+     42           */
+     43          
+     44          #include "hal_types.h"
+     45          #include "hal_assert.h"
+     46          #include "hal_board.h"
+     47          #include "hal_defs.h"
+     48          #include "hal_mcu.h"
+     49          #include "hal_uart.h"
+     50          
+     51          /*********************************************************************
+     52           * MACROS
+     53           */
+     54          
+     55          //#define HAL_UART_ASSERT(expr)        HAL_ASSERT((expr))
+     56          #define HAL_UART_ASSERT(expr)
+     57          
+     58          #define HAL_UART_ISR_RX_AVAIL() \
+     59            (isrCfg.rxTail >= isrCfg.rxHead) ? \
+     60            (isrCfg.rxTail - isrCfg.rxHead) : \
+     61            (HAL_UART_ISR_RX_MAX - isrCfg.rxHead + isrCfg.rxTail)
+     62          
+     63          #define HAL_UART_ISR_TX_AVAIL() \
+     64            (isrCfg.txHead > isrCfg.txTail) ? \
+     65            (isrCfg.txHead - isrCfg.txTail - 1) : \
+     66            (HAL_UART_ISR_TX_MAX - isrCfg.txTail + isrCfg.txHead - 1)
+     67          
+     68          /*********************************************************************
+     69           * CONSTANTS
+     70           */
+     71          
+     72          // UxCSR - USART Control and Status Register.
+     73          #define CSR_MODE                   0x80
+     74          #define CSR_RE                     0x40
+     75          #define CSR_SLAVE                  0x20
+     76          #define CSR_FE                     0x10
+     77          #define CSR_ERR                    0x08
+     78          #define CSR_RX_BYTE                0x04
+     79          #define CSR_TX_BYTE                0x02
+     80          #define CSR_ACTIVE                 0x01
+     81          
+     82          // UxUCR - USART UART Control Register.
+     83          #define UCR_FLUSH                  0x80
+     84          #define UCR_FLOW                   0x40
+     85          #define UCR_D9                     0x20
+     86          #define UCR_BIT9                   0x10
+     87          #define UCR_PARITY                 0x08
+     88          #define UCR_SPB                    0x04
+     89          #define UCR_STOP                   0x02
+     90          #define UCR_START                  0x01
+     91          
+     92          #define UTX0IE                     0x04
+     93          #define UTX1IE                     0x08
+     94          
+     95          #define P2DIR_PRIPO                0xC0
+     96          
+     97          // Incompatible redefinitions result with more than one UART driver sub-module.
+     98          #undef PxOUT
+     99          #undef PxDIR
+    100          #undef PxSEL
+    101          #undef UxCSR
+    102          #undef UxUCR
+    103          #undef UxDBUF
+    104          #undef UxBAUD
+    105          #undef UxGCR
+    106          #undef URXxIE
+    107          #undef URXxIF
+    108          #undef UTXxIE
+    109          #undef UTXxIF
+    110          #undef HAL_UART_PERCFG_BIT
+    111          #undef HAL_UART_Px_RTS
+    112          #undef HAL_UART_Px_CTS
+    113          #undef HAL_UART_Px_RX_TX
+    114          #if (HAL_UART_ISR == 1)
+    115          #define PxOUT                      P0
+    116          #define PxDIR                      P0DIR
+    117          #define PxSEL                      P0SEL
+    118          #define UxCSR                      U0CSR
+    119          #define UxUCR                      U0UCR
+    120          #define UxDBUF                     U0DBUF
+    121          #define UxBAUD                     U0BAUD
+    122          #define UxGCR                      U0GCR
+    123          #define URXxIE                     URX0IE
+    124          #define URXxIF                     URX0IF
+    125          #define UTXxIE                     UTX0IE
+    126          #define UTXxIF                     UTX0IF
+    127          #else
+    128          #define PxOUT                      P1
+    129          #define PxDIR                      P1DIR
+    130          #define PxSEL                      P1SEL
+    131          #define UxCSR                      U1CSR
+    132          #define UxUCR                      U1UCR
+    133          #define UxDBUF                     U1DBUF
+    134          #define UxBAUD                     U1BAUD
+    135          #define UxGCR                      U1GCR
+    136          #define URXxIE                     URX1IE
+    137          #define URXxIF                     URX1IF
+    138          #define UTXxIE                     UTX1IE
+    139          #define UTXxIF                     UTX1IF
+    140          #endif
+    141          
+    142          #if (HAL_UART_ISR == 1)
+    143          #define HAL_UART_PERCFG_BIT        0x01         // USART0 on P0, Alt-1; so clear this bit.
+    144          #define HAL_UART_Px_RX_TX          0x0C         // Peripheral I/O Select for Rx/Tx.
+    145          #define HAL_UART_Px_RTS            0x20         // Peripheral I/O Select for RTS.
+    146          #define HAL_UART_Px_CTS            0x10         // Peripheral I/O Select for CTS.
+    147          #else
+    148          #define HAL_UART_PERCFG_BIT        0x02         // USART1 on P1, Alt-2; so set this bit.
+    149          #define HAL_UART_Px_RTS            0x20         // Peripheral I/O Select for RTS.
+    150          #define HAL_UART_Px_CTS            0x10         // Peripheral I/O Select for CTS.
+    151          #define HAL_UART_Px_RX_TX          0xC0         // Peripheral I/O Select for Rx/Tx.
+    152          #endif
+    153          
+    154          // The timeout tick is at 32-kHz, so multiply msecs by 33.
+    155          #define HAL_UART_MSECS_TO_TICKS    33
+    156          
+    157          #if defined MT_TASK
+    158          #define HAL_UART_ISR_TX_MAX        MT_UART_DEFAULT_MAX_TX_BUFF
+    159          #define HAL_UART_ISR_RX_MAX        MT_UART_DEFAULT_MAX_RX_BUFF
+    160          #define HAL_UART_ISR_HIGH          MT_UART_DEFAULT_THRESHOLD
+    161          #define HAL_UART_ISR_IDLE         (MT_UART_DEFAULT_IDLE_TIMEOUT * HAL_UART_MSECS_TO_TICKS)
+    162          #else
+    163          #if !defined HAL_UART_ISR_RX_MAX
+    164          #define HAL_UART_ISR_RX_MAX        128
+    165          #endif
+    166          #if !defined HAL_UART_ISR_TX_MAX
+    167          #define HAL_UART_ISR_TX_MAX        HAL_UART_ISR_RX_MAX
+    168          #endif
+    169          #if !defined HAL_UART_ISR_HIGH
+    170          #define HAL_UART_ISR_HIGH         (HAL_UART_ISR_RX_MAX / 2 - 16)
+    171          #endif
+    172          #if !defined HAL_UART_ISR_IDLE
+    173          #define HAL_UART_ISR_IDLE         (6 * HAL_UART_MSECS_TO_TICKS)
+    174          #endif
+    175          #endif
+    176          
+    177          /*********************************************************************
+    178           * TYPEDEFS
+    179           */
+    180          
+    181          typedef struct
+    182          {
+    183            uint8 rxBuf[HAL_UART_ISR_RX_MAX];
+                               ^
+Error[Pe020]: identifier "MT_UART_DEFAULT_MAX_RX_BUFF" is undefined
+    184          #if HAL_UART_ISR_RX_MAX < 256
+    185            uint8 rxHead;
+    186            uint8 rxTail;
+    187          #else
+    188            uint16 rxHead;
+    189            uint16 rxTail;
+    190          #endif
+    191            uint8 rxTick;
+    192            uint8 rxShdw;
+    193          
+    194            uint8 txBuf[HAL_UART_ISR_TX_MAX];
+                               ^
+Error[Pe020]: identifier "MT_UART_DEFAULT_MAX_TX_BUFF" is undefined
+    195          #if HAL_UART_ISR_TX_MAX < 256
+    196            uint8 txHead;
+    197            uint8 txTail;
+    198          #else
+    199            uint16 txHead;
+    200            uint16 txTail;
+    201          #endif
+    202            uint8 txMT;
+    203          
+    204            halUARTCBack_t uartCB;
+    205          } uartISRCfg_t;
+    206          
+    207          /*********************************************************************
+    208           * GLOBAL VARIABLES
+    209           */
+    210          
+    211          /*********************************************************************
+    212           * GLOBAL FUNCTIONS
+    213           */
+    214          
+    215          /*********************************************************************
+    216           * LOCAL VARIABLES
+    217           */
+    218          
+    219          static uartISRCfg_t isrCfg;
+    220          
+    221          /*********************************************************************
+    222           * LOCAL FUNCTIONS
+    223           */
+    224          
+    225          static void HalUARTInitISR(void);
+    226          static void HalUARTOpenISR(halUARTCfg_t *config);
+    227          uint16 HalUARTReadISR(uint8 *buf, uint16 len);
+    228          uint16 HalUARTWriteISR(uint8 *buf, uint16 len);
+    229          static void HalUARTPollISR(void);
+    230          static uint16 HalUARTRxAvailISR(void);
+    231          static void HalUARTSuspendISR(void);
+    232          static void HalUARTResumeISR(void);
+    233          
+    234          static void halUartRxIsr(void);
+    235          static void halUartTxIsr(void);
+    236          
+    237          /******************************************************************************
+    238           * @fn      HalUARTInitISR
+    239           *
+    240           * @brief   Initialize the UART
+    241           *
+    242           * @param   none
+    243           *
+    244           * @return  none
+    245           *****************************************************************************/
+    246          static void HalUARTInitISR(void)
+    247          {
+    248            // Set P2 priority - USART0 over USART1 if both are defined.
+    249            P2DIR &= ~P2DIR_PRIPO;
+    250            P2DIR |= HAL_UART_PRIPO;
+    251          
+    252          #if (HAL_UART_ISR == 1)
+    253            PERCFG &= ~HAL_UART_PERCFG_BIT;    // Set UART0 I/O location to P0.
+    254          #else
+    255            PERCFG |= HAL_UART_PERCFG_BIT;     // Set UART1 I/O location to P1.
+    256          #endif
+    257            PxSEL  |= HAL_UART_Px_RX_TX;       // Enable Tx and Rx on P1.
+    258            ADCCFG &= ~HAL_UART_Px_RX_TX;      // Make sure ADC doesnt use this.
+    259            UxCSR = CSR_MODE;                  // Mode is UART Mode.
+    260            UxUCR = UCR_FLUSH;                 // Flush it.
+    261          }
+    262          
+    263          /******************************************************************************
+    264           * @fn      HalUARTUnInitISR
+    265           *
+    266           * @brief   UnInitialize the UART.
+    267           *
+    268           * @param   none
+    269           *
+    270           * @return  none
+    271           *****************************************************************************/
+    272          static void HalUARTUnInitISR(void)
+    273          {
+    274            UxCSR = 0;
+    275            URXxIE = 0;
+    276            URXxIF = 0;
+    277            IEN2 &= ~UTXxIE;
+    278            UTXxIF = 0;
+    279          }
+    280          
+    281          /******************************************************************************
+    282           * @fn      HalUARTOpenISR
+    283           *
+    284           * @brief   Open a port according tp the configuration specified by parameter.
+    285           *
+    286           * @param   config - contains configuration information
+    287           *
+    288           * @return  none
+    289           *****************************************************************************/
+    290          static void HalUARTOpenISR(halUARTCfg_t *config)
+    291          {
+    292            isrCfg.uartCB = config->callBackFunc;
+    293            // Only supporting subset of baudrate for code size - other is possible.
+    294            HAL_UART_ASSERT(
+    295                            (config->baudRate == HAL_UART_BR_4800)||
+    296                            (config->baudRate == HAL_UART_BR_9600) ||
+    297                            (config->baudRate == HAL_UART_BR_19200) ||
+    298                            (config->baudRate == HAL_UART_BR_38400) ||
+    299                            (config->baudRate == HAL_UART_BR_57600) ||
+    300                            (config->baudRate == HAL_UART_BR_115200));
+    301          
+    302            if (config->baudRate == HAL_UART_BR_57600 ||
+    303                config->baudRate == HAL_UART_BR_115200)
+    304            {
+    305              UxBAUD = 216;
+    306            }
+    307            else
+    308            {
+    309              UxBAUD = 59;
+    310            }
+    311          
+    312            switch (config->baudRate)
+    313            {
+    314              
+    315              
+    316               case HAL_UART_BR_4800:
+                           ^
+Error[Pe020]: identifier "HAL_UART_BR_4800" is undefined
+
+  static void HalUARTInitISR(void)
+              ^
+"C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\Utilities\BootLoad\CC2530\source\_hal_uart_isr.c",246  Warning[Pe177]: 
+          function "HalUARTInitISR" was declared but never referenced
+
+  static void HalUARTOpenISR(halUARTCfg_t *config)
+              ^
+"C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\Utilities\BootLoad\CC2530\source\_hal_uart_isr.c",290  Warning[Pe177]: 
+          function "HalUARTOpenISR" was declared but never referenced
+    317                UxGCR = 7;
+    318                break;
+    319              case HAL_UART_BR_9600:
+    320                UxGCR = 8;
+    321                break;
+    322              case HAL_UART_BR_19200:
+    323                UxGCR = 9;
+    324                break;
+    325              case HAL_UART_BR_38400:
+    326              case HAL_UART_BR_57600:
+    327                UxGCR = 10;
+    328                break;
+    329              default:
+    330                UxGCR = 11;
+    331                break;
+    332            }
+    333          
+    334            // 8 bits/char; no parity; 1 stop bit; stop bit hi.
+    335            if (config->flowControl)
+    336            {
+    337              UxUCR = UCR_FLOW | UCR_STOP;
+    338              PxSEL |= HAL_UART_Px_RTS | HAL_UART_Px_CTS;
+    339            }
+    340            else
+    341            {
+    342              UxUCR = UCR_STOP;
+    343            }
+    344          
+    345            UxCSR |= CSR_RE;
+    346          }
+    347          
+    348          /*****************************************************************************
+    349           * @fn      HalUARTReadISR
+    350           *
+    351           * @brief   Read a buffer from the UART
+    352           *
+    353           * @param   buf  - valid data buffer at least 'len' bytes in size
+    354           *          len  - max length number of bytes to copy to 'buf'
+    355           *
+    356           * @return  length of buffer that was read
+    357           *****************************************************************************/
+    358          uint16 HalUARTReadISR(uint8 *buf, uint16 len)
+    359          {
+    360            uint16 cnt = 0;
+    361          
+    362            while ((isrCfg.rxHead != isrCfg.rxTail) && (cnt < len))
+    363            {
+    364              *buf++ = isrCfg.rxBuf[isrCfg.rxHead++];
+    365              if (isrCfg.rxHead >= HAL_UART_ISR_RX_MAX)
+    366              {
+    367                isrCfg.rxHead = 0;
+    368              }
+    369              cnt++;
+    370            }
+    371          
+    372            return cnt;
+    373          }
+    374          
+    375          /******************************************************************************
+    376           * @fn      HalUARTWriteISR
+    377           *
+    378           * @brief   Write a buffer to the UART.
+    379           *
+    380           * @param   buf - pointer to the buffer that will be written, not freed
+    381           *          len - length of
+    382           *
+    383           * @return  length of the buffer that was sent
+    384           *****************************************************************************/
+    385          uint16 HalUARTWriteISR(uint8 *buf, uint16 len)
+    386          {
+    387            uint16 cnt;
+    388          
+    389            // Enforce all or none.
+    390            if (HAL_UART_ISR_TX_AVAIL() < len)
+    391            {
+    392              return 0;
+    393            }
+    394          
+    395            for (cnt = 0; cnt < len; cnt++)
+    396            {
+    397              isrCfg.txBuf[isrCfg.txTail] = *buf++;
+    398              isrCfg.txMT = 0;
+    399          
+    400              if (isrCfg.txTail >= HAL_UART_ISR_TX_MAX-1)
+    401              {
+    402                isrCfg.txTail = 0;
+    403              }
+    404              else
+    405              {
+    406                isrCfg.txTail++;
+    407              }
+    408          
+    409              UTXxIF = 1;
+    410            }
+    411          
+    412            return cnt;
+    413          }
+    414          
+    415          /******************************************************************************
+    416           * @fn      HalUARTPollISR
+    417           *
+    418           * @brief   Poll a USART module implemented by ISR.
+    419           *
+    420           * @param   none
+    421           *
+    422           * @return  none
+    423           *****************************************************************************/
+    424          static void HalUARTPollISR(void)
+                             ^
+Warning[Pe177]: function "HalUARTPollISR" was declared but never referenced
+    425          {
+    426            while(URXxIF)  halUartRxIsr();
+    427            while(UTXxIF)  halUartTxIsr();
+    428          }
+    429          
+    430          /**************************************************************************************************
+    431           * @fn      HalUARTRxAvailISR()
+    432           *
+    433           * @brief   Calculate Rx Buffer length - the number of bytes in the buffer.
+    434           *
+    435           * @param   none
+    436           *
+    437           * @return  length of current Rx Buffer
+    438           **************************************************************************************************/
+    439          static uint16 HalUARTRxAvailISR(void)
+                               ^
+Warning[Pe177]: function "HalUARTRxAvailISR" was declared but never referenced
+    440          {
+    441            return HAL_UART_ISR_RX_AVAIL();
+    442          }
+    443          
+    444          /******************************************************************************
+    445           * @fn      HalUARTSuspendISR
+    446           *
+    447           * @brief   Suspend UART hardware before entering PM mode 1, 2 or 3.
+    448           *
+    449           * @param   None
+    450           *
+    451           * @return  None
+    452           *****************************************************************************/
+    453          static void HalUARTSuspendISR( void )
+                             ^
+Warning[Pe177]: function "HalUARTSuspendISR" was declared but never referenced
+    454          {
+    455            UxCSR &= ~CSR_RE;
+    456          }
+    457          
+    458          /******************************************************************************
+    459           * @fn      HalUARTResumeISR
+    460           *
+    461           * @brief   Resume UART hardware after exiting PM mode 1, 2 or 3.
+    462           *
+    463           * @param   None
+    464           *
+    465           * @return  None
+    466           *****************************************************************************/
+    467          static void HalUARTResumeISR( void )
+                             ^
+Warning[Pe177]: function "HalUARTResumeISR" was declared but never referenced
+
+  static void HalUARTUnInitISR(void)
+              ^
+"C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\Utilities\BootLoad\CC2530\source\_hal_uart_isr.c",272  Warning[Pe177]: 
+          function "HalUARTUnInitISR" was declared but never referenced
+    468          {
+    469            UxUCR |= UCR_FLUSH;
+    470            UxCSR |= CSR_RE;
+    471          }
+    472          
+    473          /***************************************************************************************************
+    474           * @fn      halUartRxIsr
+    475           *
+    476           * @brief   UART Receive Interrupt
+    477           *
+    478           * @param   None
+    479           *
+    480           * @return  None
+    481           ***************************************************************************************************/
+    482          static void halUartRxIsr(void)
+    483          {
+    484            uint8 tmp = UxDBUF;
+    485            URXxIF = 0;
+    486          
+    487            isrCfg.rxBuf[isrCfg.rxTail] = tmp;
+    488          
+    489            if (++isrCfg.rxTail >= HAL_UART_ISR_RX_MAX)
+    490            {
+    491              isrCfg.rxTail = 0;
+    492            }
+    493          }
+    494          
+    495          /***************************************************************************************************
+    496           * @fn      halUartTxIsr
+    497           *
+    498           * @brief   UART Transmit Interrupt
+    499           *
+    500           * @param   None
+    501           *
+    502           * @return  None
+    503           ***************************************************************************************************/
+    504          static void halUartTxIsr(void)
+    505          {
+    506            UTXxIF = 0;
+    507          
+    508            if (isrCfg.txHead != isrCfg.txTail)
+    509            {
+    510              UxDBUF = isrCfg.txBuf[isrCfg.txHead++];
+    511          
+    512              if (isrCfg.txHead >= HAL_UART_ISR_TX_MAX)
+    513              {
+    514                isrCfg.txHead = 0;
+    515              }
+    516            }
+    517          }
+    518          
+    519          /******************************************************************************
+    520          ******************************************************************************/
+
+Errors: 3
+Warnings: 7

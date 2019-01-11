@@ -1,0 +1,21 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\internal_data\ULN2003Ä£¿é\²âÊÔ³ÌÐò\BJDJ\BJDJ.uvproj
+Project File Date:  12/23/2011
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling Main.c...
+linking...
+Program Size: data=9.0 xdata=0 code=51
+creating hex file from "BJDJ"...
+"BJDJ" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling Main.c...
+linking...
+Program Size: data=9.0 xdata=0 code=51
+creating hex file from "BJDJ"...
+"BJDJ" - 0 Error(s), 0 Warning(s).
